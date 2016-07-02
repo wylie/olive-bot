@@ -17,5 +17,4 @@ module.exports = (robot) ->
 
   robot.respond /hey/i, (res) ->
     setTimeout () ->
-      res.send "…huh?"
-    , 60 * 1000
+      res.send '...huh?', 60 * 1000
