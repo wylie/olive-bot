@@ -104,3 +104,13 @@ module.exports = (robot) ->
   # robot.respond /sleep it off/i, (res) ->
   #   robot.brain.set 'totalSodas', 0
   #   res.reply 'zzzzz'
+
+  robot.hear /speak/i, (res) ->
+    res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
+
+  robot.respond /open the pod bay doors/i, (res) ->
+    res.reply "I'm afraid I can't let you do that."
+
+  robot.hear /I like pie/i, (res) ->
+    res.emote "makes a freshly baked pie"
+
