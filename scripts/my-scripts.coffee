@@ -14,7 +14,7 @@ module.exports = (robot) ->
   enterReplies = ['Hi', 'Welcome!', 'Hello friend', 'I see you', "We're happy to have you here"]
   robot.respond /welcome/i, (res) ->
   # robot.enter (res) ->
-    res.send res.random enterReplies
+    res.send res.random "#{enterReplies}, I'm Olive and I'm here to help you out with things"
 
   robot.respond /hey/i, (res) ->
     setTimeout () ->
