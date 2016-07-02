@@ -16,7 +16,7 @@ module.exports = (robot) ->
   robot.respond /welcome/i, (res) ->
   # robot.enter (res) ->
     randomReply = res.random enterReplies
-    res.send "#{randomReply}, I'm Olive and I'm here to help you out with things"
+    res.send "#{randomReply}, I'm Olive and I'm here to help you out with things. You can type `Olive help` to see all the things I can lend a hand with."
 
   robot.respond /hey/i, (res) ->
     setTimeout () ->
