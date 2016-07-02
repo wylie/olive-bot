@@ -12,9 +12,9 @@ module.exports = (robot) ->
   robot.hear /walk/i, (res) ->
     res.send "Did somebody say walk?!"
 
-  enterReplies = ['Hi', 'Welcome', 'Hello friend', 'Boy, am I glad you\re here', "We're happy to have you"]
-  robot.respond /welcome/i, (res) ->
-  # robot.enter (res) ->
+  enterReplies = ["Hi", "Welcome", "Hello friend", "Boy, am I glad you\re here", "We're happy to have you"]
+  # robot.respond /welcome/i, (res) ->
+  robot.enter (res) ->
     randomReply = res.random enterReplies
     res.send "#{randomReply}, I'm Olive and I'm here to help you out with things. You can type `Olive help` to see all the things I can lend a hand with."
 
