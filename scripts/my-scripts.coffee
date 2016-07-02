@@ -10,7 +10,12 @@ module.exports = (robot) ->
     res.send "yes, please!"
 
   # room = req.params.room
-  # enterReplies = ['Hi', 'Welcome!', 'Hello friend', 'I see you', "We're happy to have you here in #{room}"]
+  # enterReplies = ['Hi', 'Welcome!', 'Hello friend', 'I see you', "We're happy to have you her in #{room}"]
   enterReplies = ['Hi', 'Welcome!', 'Hello friend', 'I see you', "We're happy to have you here"]
   robot.enter (res) ->
     res.send res.random enterReplies
+
+  robot.respond /hey/, (res) ->
+    setTimeout () ->
+      res.send "…huh?"
+    , 60 * 1000
