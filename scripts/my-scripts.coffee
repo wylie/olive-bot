@@ -15,7 +15,7 @@ module.exports = (robot) ->
   robot.enter (res) ->
     res.send res.random enterReplies
 
-  robot.respond /hey/, (res) ->
+  robot.respond /hey/i, (res) ->
     setTimeout () ->
       res.send "…huh?"
     , 60 * 1000
