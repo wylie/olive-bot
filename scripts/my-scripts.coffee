@@ -5,5 +5,5 @@ module.exports = (robot) ->
   robot.topic (res) ->
     res.send "Are you sure you want change the channel topic to #{res.message.text}? "
 
-  robot.hear /speak/i, (res) ->
+  robot.respond /speak/i, (res) ->
     res.send "Woof"
