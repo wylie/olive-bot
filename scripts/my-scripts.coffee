@@ -9,6 +9,9 @@ module.exports = (robot) ->
   robot.respond /would you like a biscuit/i, (res) ->
     res.send "yes, please!"
 
+  robot.hear /walk/i, (res) ->
+    res.send "Did somebody say walk?!"
+
   enterReplies = ['Hi', 'Welcome', 'Hello friend', 'Boy, am I glad you\re here', "We're happy to have you"]
   robot.respond /welcome/i, (res) ->
   # robot.enter (res) ->
