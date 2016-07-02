@@ -9,7 +9,8 @@ module.exports = (robot) ->
   robot.respond /would you like a biscuit/i, (res) ->
     res.send "yes, please!"
 
-  room   = req.params.room
-  enterReplies = ['Hi', 'Welcome!', 'Hello friend', 'I see you', "We're happy to have you hear in #{room}"]
+  # room = req.params.room
+  # enterReplies = ['Hi', 'Welcome!', 'Hello friend', 'I see you', "We're happy to have you here in #{room}"]
+  enterReplies = ['Hi', 'Welcome!', 'Hello friend', 'I see you', "We're happy to have you here"]
   robot.enter (res) ->
     res.send res.random enterReplies
