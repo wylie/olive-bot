@@ -12,7 +12,8 @@ module.exports = (robot) ->
   # room = req.params.room
   # enterReplies = ['Hi', 'Welcome!', 'Hello friend', 'I see you', "We're happy to have you her in #{room}"]
   enterReplies = ['Hi', 'Welcome!', 'Hello friend', 'I see you', "We're happy to have you here"]
-  robot.enter (res) ->
+  robot.respond /welcome/i, (res) ->
+  # robot.enter (res) ->
     res.send res.random enterReplies
 
   robot.respond /hey/i, (res) ->
