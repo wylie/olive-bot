@@ -20,6 +20,8 @@
 # Author:
 #   alexdean
 
+HUBOT_WEATHER_WUNDERGROUND_KEY=0c6f548964369d37
+
 module.exports = (robot) ->
   robot.respond /weather (me|at|for|in)? ?(.*)$/i, (msg) ->
     location = msg.match[2]
