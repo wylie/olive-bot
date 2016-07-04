@@ -23,7 +23,6 @@ module.exports = (robot) ->
   robot.respond /weather (me|at|for|in)? ?(.*)$/i, (msg) ->
     location = msg.match[2]
     get_data robot, msg, location, 'forecast', location.replace(/\s/g, '_'), send_forecast, 60*60*2
-    msg.topic send_forecast
 
   robot.respond /radar (me|at|for|in)? ?(.*)$/i, (msg) ->
     location = msg.match[2]
@@ -89,7 +88,8 @@ get_data = (robot, msg, location, service, query, cb, lifetime, stack=0) ->
 send_forecast = (msg, location, data) ->
   report = data.forecast.txt_forecast.forecastday[0]
   useMetric = process.env.HUBOT_WUNDERGROUND_USE_METRIC?
-  msg.send "#{report.title} in #{location}: #{if useMetric then report.fcttext_metric else report.fcttext} (#{formatted_ttl data})"
+  msg.send "#{report.title} in #{location}: #{if useMetric then report.fcttext_metric else report.fcttext}"
+  msg.topic "#{report.title} in #{location}: #{if useMetric then report.fcttext_metric else report.fcttext}"
 send_radar = (msg, location, data) ->
   msg.send "#{data.radar.image_url}#.png"
 
