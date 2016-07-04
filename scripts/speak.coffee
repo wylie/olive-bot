@@ -13,6 +13,7 @@
 # Author:
 #   wylie
 
+module.exports = (robot) ->
   speaks = ['Woof', 'Bark', 'Grrr']
   robot.respond /speak/i, (res) ->
     res.send res.random speaks
