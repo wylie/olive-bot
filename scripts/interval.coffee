@@ -13,7 +13,8 @@
 
 module.exports = (robot) ->
 
-  res.send "Hey, want to hear the most annoying sound in the world?"
-  setInterval () ->
-    res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
-  , 1000
+  robot.respond /speak/i, (res) ->
+    res.send "Hey, want to hear the most annoying sound in the world?"
+    setInterval () ->
+      res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
+    , 1000
