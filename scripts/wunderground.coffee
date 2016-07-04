@@ -12,7 +12,6 @@
 #   hubot weather me <location> - short-term forecast
 #   hubot radar me <location> - recent radar image
 #   hubot satellite me <location> - get a recent satellite image
-#   hubot weathercam me <location> - get a weather webcam image near location
 #
 # Notes:
 #   location can be zip code, ICAO/IATA airport code, state/city (CA/San_Franciso).
@@ -24,6 +23,7 @@ module.exports = (robot) ->
   robot.respond /weather (me|at|for|in)? ?(.*)$/i, (msg) ->
     location = msg.match[2]
     get_data robot, msg, location, 'forecast', location.replace(/\s/g, '_'), send_forecast, 60*60*2
+    msg.topic send_forecast
 
   robot.respond /radar (me|at|for|in)? ?(.*)$/i, (msg) ->
     location = msg.match[2]
@@ -33,9 +33,9 @@ module.exports = (robot) ->
     location = msg.match[2]
     get_data robot, msg, location, 'satellite', location.replace(/\s/g, '_'), send_satellite, 60*10
 
-  robot.respond /weathercam (me|at|for|in)? ?(.*)$/i, (msg) ->
-    location = msg.match[2]
-    get_data robot, msg, location, 'webcams', location.replace(/\s/g, '_'), send_webcam, 60*30
+  # robot.respond /weathercam (me|at|for|in)? ?(.*)$/i, (msg) ->
+  #   location = msg.match[2]
+  #   get_data robot, msg, location, 'webcams', location.replace(/\s/g, '_'), send_webcam, 60*30
 
 # check cache, get data, store data, invoke callback.
 get_data = (robot, msg, location, service, query, cb, lifetime, stack=0) ->
