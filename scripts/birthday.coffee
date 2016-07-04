@@ -8,9 +8,9 @@
 #   None
 #
 # Commands:
-#   hubot birthday quote for <user> -- congratulate <user> with a random birthday quote
-#   hubot celebrate me <user> -- congratulate <user> with an inspirational greeting
-#   hubot happy birthday me <user> -- congratulate <user> with a humorous greeting
+#   `hubot birthday quote for <user>` -- congratulate <user> with a random birthday quote
+#   `hubot celebrate me <user>` -- congratulate <user> with an inspirational greeting
+#   `hubot happy birthday me <user>` -- congratulate <user> with a humorous greeting
 #
 # Author:
 #   sopel

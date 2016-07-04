@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot beer me - Grab me a beer
+#   `hubot beer me` - Grab me a beer
 #
 # Author:
 #  houndbee
