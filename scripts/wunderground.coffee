@@ -9,18 +9,16 @@
 #   HUBOT_WUNDERGROUND_USE_METRIC Set to arbitrary value to use forecasts with metric system units
 #
 # Commands:
-#   hubot weather me <location> - short-term forecast
-#   hubot radar me <location> - recent radar image
-#   hubot satellite me <location> - get a recent satellite image
-#   hubot weathercam me <location> - get a weather webcam image near location
+#   *hubot weather me <location>* - short-term forecast
+#   *hubot radar me <location>* - recent radar image
+#   *hubot satellite me <location>* - get a recent satellite image
+#   *hubot weathercam me <location>* - get a weather webcam image near location
 #
 # Notes:
 #   location can be zip code, ICAO/IATA airport code, state/city (CA/San_Franciso).
 #
 # Author:
 #   alexdean
-
-# HUBOT_WEATHER_WUNDERGROUND_KEY=0c6f548964369d37
 
 module.exports = (robot) ->
   robot.respond /weather (me|at|for|in)? ?(.*)$/i, (msg) ->
