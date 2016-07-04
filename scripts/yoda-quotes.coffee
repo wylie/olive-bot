@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot quote - Returns a random yoda quote
+#   hubot quote - Returns a random Yoda quote
 #
 # Author:
 #   vquaiato
@@ -40,5 +40,5 @@ quotes = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /.*(yoda quote).*/i, (msg) ->
+  robot.respond /quote/i, (msg) ->
     msg.send msg.random quotes
