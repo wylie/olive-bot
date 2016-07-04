@@ -18,7 +18,7 @@
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.0",
     "hubot-slack": "^3.4.2",
-    "olive-bot-speak": "git://github.com/wylie/olive-bot-speak.git#master"
+    "olive-bot-speak": "git://github.com/wylie/olive-bot-speak.git"
   },
   "engines": {
     "node": "0.10.x"
