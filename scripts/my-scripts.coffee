@@ -1,9 +1,4 @@
 module.exports = (robot) ->
-  # speak
-  speaks = ['Woof', 'Bark', 'Grrr']
-  robot.respond /speak/i, (res) ->
-    res.send res.random speaks
-
   # channel topic change
   robot.topic (res) ->
     res.send "Are you sure you want change the channel topic to #{res.message.text}?"
