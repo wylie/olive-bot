@@ -1,6 +1,6 @@
 # Olive Bot
 
-This is, essentially, a cloned version of Hubot. It has some personal additions, but perhaps I can work those out of here at some point?
+This is, essentially, a cloned version of Hubot but has some personal additions. Perhaps I can work those out of here at some point?
 
 ---
 
