@@ -48,7 +48,7 @@ easier way to do this has been implemented.
     grep -o 'hubot-[a-z0-9_-]\+' external-scripts.json | \
       xargs -n1 -I {} sh -c 'sed -n "/^# Configuration/,/^#$/ s/^/{} /p" \
           $(find node_modules/{}/ -name "*.coffee")' | \
-        awk -F '#' '{ printf "%-25s %s\n shazam\n", $1, $2 }'
+        awk -F '#' '{ printf "%-25s %s\n", $1, $2 }'
 
 How to set environment variables will be specific to your operating system.
 Rather than recreate the various methods and best practices in achieving this,
