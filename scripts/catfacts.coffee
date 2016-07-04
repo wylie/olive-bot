@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   `hubot catfact - Reply back with random cat fact.
+#   `hubot catfact` - Reply back with random cat fact.
 #
 # Author:
 #   scottmeyer
