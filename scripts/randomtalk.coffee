@@ -20,12 +20,11 @@ module.exports = (robot) ->
     #   res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
     # , 1000
 
-  robot.listen ->
-    # (message) -> # Match function
-      # Occassionally respond to things that Steve says
-      # message.user.name is "Wylie" and Math.random() > 0.8
-    if message.user.name is "Wylie"
-    # (response) -> # Standard listener callback
-      # Let Steve know how happy you are that he exists
-      response.reply "HI WYLIE! YOU'RE MY BEST FRIEND! (but only like #{response.match * 100}% of the time)"
+  robot.listen(
+    (message) -> # Match function
+      # Occassionally respond to things that Wylie says
+      message.user.name is "Wylie" and Math.random() > 0.8
+    (response) -> # Standard listener callback
+      # Let Wylie know how happy you are that he exists
+      response.reply "HI Wylie! YOU'RE MY BEST FRIEND! (but only like #{response.match * 100}% of the time)"
   )
