@@ -19,7 +19,7 @@ module.exports = (robot) ->
   #     res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
   #   , 1000
 
-  robot.respond /you/, (res) ->
+  robot.hear /you/, (res) ->
     setTimeout () ->
       res.send "Who you calling 'slow'?"
     , 60 * 1000
