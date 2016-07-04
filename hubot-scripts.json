@@ -1,8 +1,13 @@
 [
+  "help",
   "yoda-quotes",
   "wunderground",
   "catfacts",
   "birthday",
   "beerme",
-  "pugme"
+  "pugme",
+  "rules",
+  "maps",
+  "translate",
+  "images"
 ]
