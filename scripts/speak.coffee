@@ -2,7 +2,7 @@
 #   Let's hear Hubot speak!
 #
 # Commands:
-#   - hubot speak - Hubot speaks!
+#   hubot speak - Hubot speaks!
 #
 # Author:
 #   wylie
