@@ -16,13 +16,13 @@ module.exports = (robot) ->
 
   babyName = 'Oslo'
   units = 'ounces'
-  room = req.params.room
+  room = '#oslo'
 
   robot.respond /log (.*)/i, (res) ->
     newMilk = res.match[1]
     oldMilk = robot.brain.get('totalMilk') * 1 or 0
 
-    robot.messageRoom room, "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"    
+    robot.messageRoom room, "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
     # res.reply "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
     robot.brain.set 'totalMilk', parseFloat(oldMilk)+parseFloat(newMilk)
 
