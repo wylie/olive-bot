@@ -11,6 +11,7 @@ module.exports = (robot) ->
   # everyMinute = ->
   #   robot.messageRoom room, 'I will nag you every minute'
 
-  room = '#general'
-
-  robot.send room: 'general', "This is a 'spontaneous' message"
+  room = '#testing'
+  setInterval () ->
+    robot.send room: 'general', "This is a 'spontaneous' message"
+  , 1000
