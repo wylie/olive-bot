@@ -1,5 +1,5 @@
 # Description:
-#   Pugme is the most important thing in life
+#   Testing stuff
 #
 # Commands:
 #   hubot test - Run a test!

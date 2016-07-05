@@ -1,3 +1,6 @@
+# Description:
+#   The base file in Hubot
+
 module.exports = (robot) ->
   robot.router.post '/hubot/chatsecrets/:room', (req, res) ->
     room   = req.params.room

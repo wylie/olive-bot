@@ -10,5 +10,7 @@
   "rules",
   "maps",
   "translate",
+  "brains",
+  "log",
   "cron"
 ]
