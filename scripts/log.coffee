@@ -35,3 +35,4 @@ module.exports = (robot) ->
 
   robot.hear /clear log/i, (res) ->
     robot.brain.set 'totalMilk', 0
+    res.reply "The daily log has been cleared :+1:"
