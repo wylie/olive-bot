@@ -11,8 +11,6 @@ module.exports = (robot) ->
   # everyMinute = ->
   #   robot.messageRoom room, 'I will nag you every minute'
 
-  time = Math.rand() * 10000;
-
-  setInterval () ->
-    robot.send room: 'testing', "This is a 'spontaneous' message"
-  , parseFloat(time)
+  # setTimeout () ->
+  #   robot.send room: 'testing', "This is a 'spontaneous' message"
+  # , Math.ceil(Math.random() * 1000000)
