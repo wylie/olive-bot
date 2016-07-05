@@ -21,13 +21,13 @@ module.exports = (robot) ->
     newMilk = res.match[1]
     oldMilk = robot.brain.get('totalMilk') * 1 or 0
 
-    res.reply "#{babyName} just had #{newMilk} #{units} of milk!"
+    res.reply "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
     robot.brain.set 'totalMilk', parseFloat(oldMilk)+parseFloat(newMilk)
 
   robot.respond /daily log/i, (res) ->
     totalMilk = robot.brain.get('totalMilk') * 1 or 0
     if totalMilk < 1
-      res.reply "#{babyName} hasn't had any milk yet today"
+      res.reply "#{babyName} hasn't had any milk yet today :cry:"
     else
       res.reply "#{babyName} has had a total of *#{totalMilk}* #{units} of milk today! :baby_bottle:"
 
