@@ -22,7 +22,11 @@ module.exports = (robot) ->
     newMilk = res.match[1]
     oldMilk = robot.brain.get('totalMilk') * 1 or 0
 
-    robot.messageRoom room, "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
+    if room = '#oslo'
+      robot.messageRoom room, "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
+    else
+      robot.reply "Okay, added! All log info is kept in the #oslo channel :+1:"
+
     # res.reply "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
     robot.brain.set 'totalMilk', parseFloat(oldMilk)+parseFloat(newMilk)
 
