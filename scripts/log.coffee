@@ -10,6 +10,7 @@
 # Commands:
 #   hubot log N - Log N units of milk
 #   hubot daily log - Find out how many units of milk Oslo has had today
+#   hubot clear log - Clear the daily log
 
 module.exports = (robot) ->
 
@@ -28,4 +29,7 @@ module.exports = (robot) ->
     if totalMilk < 1
       res.reply "#{babyName} hasn't had any milk yet today"
     else
-      res.reply "#{babyName} has had a total of #{totalMilk} #{units} of milk today! :baby_bottle:"
+      res.reply "#{babyName} has had a total of *#{totalMilk}* #{units} of milk today! :baby_bottle:"
+
+  robot.hear /clear log/i, (res) ->
+    robot.brain.set 'totalMilk', 0
