@@ -10,5 +10,5 @@
   "rules",
   "maps",
   "translate",
-  "constant"
+  "cron"
 ]
