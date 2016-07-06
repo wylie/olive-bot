@@ -89,7 +89,9 @@ send_forecast = (msg, location, data) ->
   report = data.forecast.txt_forecast.forecastday[0]
   useMetric = process.env.HUBOT_WUNDERGROUND_USE_METRIC?
   msg.send "#{report.title} in #{location}: #{if useMetric then report.fcttext_metric else report.fcttext}"
-  msg.topic "#{report.title} in #{location}: #{if useMetric then report.fcttext_metric else report.fcttext}"
+  robot.send room: 'weather', "This is a 'spontaneous' message"
+  # msg.topic "#{report.title} in #{location}: #{if useMetric then report.fcttext_metric else report.fcttext}"
+  robot.send room: 'weather', "#{report.title} in #{location}: #{if useMetric then report.fcttext_metric else report.fcttext}"
 send_radar = (msg, location, data) ->
   msg.send "#{data.radar.image_url}#.png"
 
