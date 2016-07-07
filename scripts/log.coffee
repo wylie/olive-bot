@@ -18,7 +18,7 @@ module.exports = (robot) ->
   units = 'ounces'
   room = '#oslo'
 
-  robot.respond /log (.*)/i, (res) ->
+  robot.respond /log [0-9]/i, (res) ->
     newMilk = res.match[1]
     oldMilk = robot.brain.get('totalMilk') * 1 or 0
 
