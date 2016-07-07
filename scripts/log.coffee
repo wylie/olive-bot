@@ -18,8 +18,6 @@ module.exports = (robot) ->
   units = 'ounces'
   room = '#oslo'
 
-  #hubot wont grab the number being added…
-  #robot.respond /log [0-9]/i, (res) ->
   robot.respond /log (.*)/i, (res) ->
     newMilk = res.match[1]
     oldMilk = robot.brain.get('totalMilk') * 1 or 0
