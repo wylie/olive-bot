@@ -39,3 +39,9 @@ module.exports = (robot) ->
   robot.hear /clear log/i, (res) ->
     robot.brain.set 'totalMilk', 0
     res.reply "The daily log has been cleared :+1:"
+
+  hour = (new Date).getHours()
+  minutes = (new Date).getMinutes()
+  if hour == 0 and minutes == 0
+    robot.brain.set 'totalMilk', 0
+    res.reply "The daily log has been cleared :+1:"
