@@ -18,7 +18,7 @@ module.exports = (robot) ->
   units = 'ounces'
   room = '#oslo'
 
-  robot.respond /log (.*)/i, (res) ->
+  robot.respond /log [0-9]/i, (res) ->
     newMilk = res.match[1]
     oldMilk = robot.brain.get('totalMilk') * 1 or 0
 
@@ -37,5 +37,11 @@ module.exports = (robot) ->
       res.reply "#{babyName} has had a total of *#{totalMilk}* #{units} of milk today! :baby_bottle:"
 
   robot.hear /clear log/i, (res) ->
+    robot.brain.set 'totalMilk', 0
+    res.reply "The daily log has been cleared :+1:"
+
+  hour = (new Date).getHours()
+  minutes = (new Date).getMinutes()
+  if hour == 0 and minutes == 0
     robot.brain.set 'totalMilk', 0
     res.reply "The daily log has been cleared :+1:"
