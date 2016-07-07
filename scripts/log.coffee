@@ -18,15 +18,12 @@ module.exports = (robot) ->
   units = 'ounces'
   room = '#oslo'
 
+  #hubot wont grab the number being added…
+  #robot.respond /log [0-9]/i, (res) ->
   robot.respond /log (.*)/i, (res) ->
     newMilk = res.match[1]
     oldMilk = robot.brain.get('totalMilk') * 1 or 0
-
-    # keep all this in the Oslo room
-    # robot.messageRoom room, "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
     robot.reply "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
-
-    # res.reply "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
     robot.brain.set 'totalMilk', parseFloat(oldMilk)+parseFloat(newMilk)
 
   robot.respond /daily log/i, (res) ->
@@ -39,3 +36,9 @@ module.exports = (robot) ->
   robot.hear /clear log/i, (res) ->
     robot.brain.set 'totalMilk', 0
     res.reply "The daily log has been cleared :+1:"
+
+# hour = (new Date).getHours()
+# minutes = (new Date).getMinutes()
+# if hour == 0 and minutes == 0
+#   robot.brain.set 'totalMilk', 0
+#   robot.send room: 'oslo', "The daily log has been cleared :+1:";
