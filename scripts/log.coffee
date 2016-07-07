@@ -21,7 +21,7 @@ module.exports = (robot) ->
   robot.respond /log (.*)/i, (res) ->
     newMilk = res.match[1]
     oldMilk = robot.brain.get('totalMilk') * 1 or 0
-    robot.brain.set 'totalMilk', parseFloat(oldMilk)+parseFloat(newMilk)
+    #robot.brain.set 'totalMilk', parseFloat(oldMilk)+parseFloat(newMilk)
     robot.reply "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
 
   robot.respond /daily log/i, (res) ->
