@@ -62,7 +62,7 @@ module.exports = (robot) ->
         final += second + ' seconds'
       else
         final += second + ' second'
-    res.reply "Total time: #{length}! :timer_clock: "
+    res.reply "Total time: #{final}! :timer_clock: "
   
   # robot.respond /start timer/i, (res) ->
   #   begin = (new Date).getTime()
