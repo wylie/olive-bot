@@ -60,7 +60,7 @@ module.exports = (robot) ->
     length = begin - end
     time = length / 1000
     robot.brain.set 'startTimer', begin
-    res.reply "Total time: #{length}! :timer_clock: "
+    res.reply "Total time: *#{length}*! :timer_clock: "
 
   robot.respond /daily log/i, (res) ->
     totalMilk = robot.brain.get('totalMilk') * 1 or 0
