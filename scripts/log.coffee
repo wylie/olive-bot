@@ -25,14 +25,14 @@ module.exports = (robot) ->
     res.reply "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
 
   robot.respond /start timer/i, (res) ->
-    begin = (new Date).getMinutes()
+    begin = (new Date).getTime()
     robot.brain.set 'startTimer', begin
     res.reply "The timer has begun! :timer_clock: "
 
   robot.respond /stop timer/i, (res) ->
-    end = (new Date).getMinutes()
+    end = (new Date).getTime()
     begin = robot.brain.get('begin')
-    length = begin - end
+    length = end - begin
     robot.brain.set 'startTimer', begin
     res.reply "Total time: #{length}! :timer_clock: "
 
