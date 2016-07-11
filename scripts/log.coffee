@@ -24,6 +24,18 @@ module.exports = (robot) ->
     robot.brain.set 'totalMilk', parseFloat(oldMilk)+parseFloat(newMilk)
     res.reply "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
 
+  robot.respond /start timer (.*)/i, (res) ->
+    begin = (new Date).getMinutes()
+    robot.brain.set 'startTimer', begin
+    res.reply "The timer has begun! :timer_clock: "
+
+  robot.respond /stop timer (.*)/i, (res) ->
+    end = (new Date).getMinutes()
+    begin = robot.brain.get('begin')
+    length = begin - end
+    robot.brain.set 'startTimer', begin
+    res.reply "Total time: #{length}! :timer_clock: "
+
   robot.respond /daily log/i, (res) ->
     totalMilk = robot.brain.get('totalMilk') * 1 or 0
     if totalMilk < 1
@@ -35,12 +47,11 @@ module.exports = (robot) ->
     robot.brain.set 'totalMilk', 0
     res.reply "The daily log has been cleared :+1:"
 
-  hour = (new Date).getHours()
-  minutes = (new Date).getMinutes()
-  if hour == 0 and minutes == 0
-    robot.brain.set 'totalMilk', 0
-    robot.send room: 'oslo', "The daily log has been cleared :+1:";
-    
-  if hour == 14 and minutes == 0
-    robot.brain.set 'totalMilk', 0
-    robot.send room: 'oslo', "The daily log has been cleared :+1:";
+#  hour = (new Date).getHours()
+#  minutes = (new Date).getMinutes()
+#  if hour == 0 and minutes == 0
+#    robot.brain.set 'totalMilk', 0
+#    robot.send room: 'oslo', "The daily log has been cleared :+1:";
+#  if hour == 14 and minutes == 0
+#    robot.brain.set 'totalMilk', 0
+#    robot.send room: 'oslo', "The daily log has been cleared :+1:";
