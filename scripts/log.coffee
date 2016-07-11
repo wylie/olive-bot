@@ -27,7 +27,7 @@ module.exports = (robot) ->
   robot.respond /start timer/i, (res) ->
     oldTime = (new Date)
     robot.brain.set 'startTimer', oldTime
-    res.reply "The timer has begun! :timer_clock: "
+    res.reply "The timer has begun! :timer_clock:"
     # newTime = (new Date).getTime()
     # time = newTime - oldTime
     # hour = new Date(time).getHours()
@@ -62,7 +62,9 @@ module.exports = (robot) ->
         final += second + ' seconds'
       else
         final += second + ' second'
-    res.reply "Total time: #{final}! :timer_clock: "
+    res.reply "Total time: #{final}! :timer_clock:"
+    robot.brain.set 'newTime', 0
+    robot.brain.set 'oldTime', 0
   
   # robot.respond /start timer/i, (res) ->
   #   begin = (new Date).getTime()
