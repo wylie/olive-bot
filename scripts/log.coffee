@@ -40,3 +40,7 @@ module.exports = (robot) ->
   if hour == 0 and minutes == 0
     robot.brain.set 'totalMilk', 0
     robot.send room: 'oslo', "The daily log has been cleared :+1:";
+    
+  if hour == 14 and minutes == 0
+    robot.brain.set 'totalMilk', 0
+    robot.send room: 'oslo', "The daily log has been cleared :+1:";
