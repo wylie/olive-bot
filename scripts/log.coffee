@@ -24,12 +24,12 @@ module.exports = (robot) ->
     robot.brain.set 'totalMilk', parseFloat(oldMilk)+parseFloat(newMilk)
     res.reply "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
 
-  robot.respond /start timer (.*)/i, (res) ->
+  robot.respond /start timer/i, (res) ->
     begin = (new Date).getMinutes()
     robot.brain.set 'startTimer', begin
     res.reply "The timer has begun! :timer_clock: "
 
-  robot.respond /stop timer (.*)/i, (res) ->
+  robot.respond /stop timer/i, (res) ->
     end = (new Date).getMinutes()
     begin = robot.brain.get('begin')
     length = begin - end
