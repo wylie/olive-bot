@@ -25,7 +25,7 @@ module.exports = (robot) ->
     res.reply "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
 
   robot.respond /start timer/i, (res) ->
-    oldTime = (new Date).getTime()
+    oldTime = (new Date)
     robot.brain.set 'startTimer', oldTime
     res.reply "The timer has begun! :timer_clock: "
     # newTime = (new Date).getTime()
@@ -46,7 +46,7 @@ module.exports = (robot) ->
     # res.innerHTML = final
 
   robot.respond /stop timer/i, (res) ->
-    newTime = (new Date).getTime()
+    newTime = (new Date)
     oldTime = robot.brain.get('oldTime')
     time = newTime - oldTime
     hour = new Date(time).getHours()
