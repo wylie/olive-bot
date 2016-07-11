@@ -25,16 +25,57 @@ module.exports = (robot) ->
     res.reply "#{babyName} just had #{newMilk} #{units} of milk! :baby_bottle:"
 
   robot.respond /start timer/i, (res) ->
-    begin = (new Date).getTime()
-    robot.brain.set 'startTimer', begin
+    oldTime = (new Date).getTime()
+    robot.brain.set 'startTimer', oldTime
     res.reply "The timer has begun! :timer_clock: "
+    # newTime = (new Date).getTime()
+    # time = newTime - oldTime
+    # hour = new Date(time).getHours()
+    # minute = new Date(time).getMinutes()
+    # second = new Date(time).getSeconds()
+    # final = ''
+    # if hour > 0
+    #   final += hour + ' hour, '
+    # if hour > 0 or minute > 0
+    #   final += minute + ' minutes and '
+    # if second >= 0
+    #   if second > 1
+    #     final += second + ' seconds'
+    #   else
+    #     final += second + ' second'
+    # res.innerHTML = final
 
   robot.respond /stop timer/i, (res) ->
-    end = (new Date).getTime()
-    begin = robot.brain.get('begin')
-    length = end - begin
-    robot.brain.set 'startTimer', begin
+    newTime = (new Date).getTime()
+    oldTime = robot.brain.get('oldTime')
+    time = newTime - oldTime
+    hour = new Date(time).getHours()
+    minute = new Date(time).getMinutes()
+    second = new Date(time).getSeconds()
+    final = ''
+    if hour > 0
+      final += hour + ' hour, '
+    if hour > 0 or minute > 0
+      final += minute + ' minutes and '
+    if second >= 0
+      if second > 1
+        final += second + ' seconds'
+      else
+        final += second + ' second'
     res.reply "Total time: #{length}! :timer_clock: "
+  
+  # robot.respond /start timer/i, (res) ->
+  #   begin = (new Date).getTime()
+  #   robot.brain.set 'startTimer', begin
+  #   res.reply "The timer has begun! :timer_clock: "
+  # 
+  # robot.respond /stop timer/i, (res) ->
+  #   end = (new Date).getTime()
+  #   begin = robot.brain.get('begin')
+  #   length = begin - end
+  #   time = length / 1000
+  #   robot.brain.set 'startTimer', begin
+  #   res.reply "Total time: #{length}! :timer_clock: "
 
   robot.respond /daily log/i, (res) ->
     totalMilk = robot.brain.get('totalMilk') * 1 or 0
