@@ -8,11 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot log N - Log N units of milk
-#   hubot daily log - Find out how many units of milk Oslo has had today
-#   hubot clear log - Clear the daily log
-#   hubot start timer - Start the timer
-#   hubot stop timer - Stop the timer
+#   None
 
 module.exports = (robot) ->
 
