@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot soda - Receive a pug
+#   hubot soda - have some soda!
 
 module.exports = (robot) ->
 
