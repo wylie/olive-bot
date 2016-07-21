@@ -10,9 +10,7 @@
 #   HUBOT_GOOGLE_IMAGES_FALLBACK - The URL to use when API fails. `{q}` will be replaced with the query string.
 #
 # Commands:
-#   hubot image me <query> - The Original. Queries Google Images for <query> and returns a random top result.
-#   hubot animate me <query> - The same thing as `image me`, except adds a few parameters to try to return an animated GIF instead.
-#   hubot mustache me <url|query> - Adds a mustache to the specified URL or query result.
+#   none
 
 module.exports = (robot) ->
 
@@ -128,3 +126,7 @@ ensureImageExtension = (url) ->
     url
   else
     "#{url}#.png"
+
+#   hubot image me <query> - The Original. Queries Google Images for <query> and returns a random top result.
+#   hubot animate me <query> - The same thing as `image me`, except adds a few parameters to try to return an animated GIF instead.
+#   hubot mustache me <url|query> - Adds a mustache to the specified URL or query result.
