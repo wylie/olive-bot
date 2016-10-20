@@ -1,6 +1,6 @@
 [
   "hubot-heroku-keepalive",
   "hubot-redis-brain",
-  "olive-bot-speak",
+  "timmy-bot",
   "hubot-thank-you"
 ]
