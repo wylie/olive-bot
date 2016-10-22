@@ -390,6 +390,20 @@ module.exports = (robot) ->
         .post() (err, res, body) ->
           return
 
+  # banana
+  robot.hear /\bban(ana|anas)\b/i, (msg) ->
+    queryData =  {
+      token: process.env.HUBOT_SLACK_TOKEN
+      name: "banana"
+      channel: msg.message.rawMessage.channel # required with timestamp, uses rawMessage to find this
+      timestamp: msg.message.id # this id is no longer undefined
+    }
+    if (queryData.timestamp?)
+      msg.http("https://slack.com/api/reactions.add")
+        .query(queryData)
+        .post() (err, res, body) ->
+          return
+
   # kanye
   robot.hear /\bkanye\b/i, (msg) ->
     queryData =  {
