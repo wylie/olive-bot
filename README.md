@@ -1,4 +1,4 @@
-# Olive Bot
+# Timmy Bot
 
 This is, essentially, a cloned version of Hubot but has some personal additions. Perhaps I can work those out of here at some point?
 
@@ -16,7 +16,7 @@ available, etc!
 [hubot]: http://hubot.github.com
 [generator-hubot]: https://github.com/github/generator-hubot
 
-### Running Olive Bot Locally
+### Running Timmy Bot Locally
 
 You can test your hubot by running the following, however some plugins will not
 behave as expected unless the [environment variables](#configuration) they rely

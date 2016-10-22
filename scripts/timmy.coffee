@@ -302,15 +302,17 @@ module.exports = (robot) ->
     res.send (res.random users).split(" ")[0] + " " + res.match[2] + "!"
 
   # google
-  robot.respond /\b(goog(le me|le))?\b (.*)/i, (res) ->
-    googleMe res, res.match[3], (url) ->
-      res.send "It looks like this might help you on your search :mag:\n#{url}"
-
-  googleMe = (msg, query, cb) ->
-    msg.http('http://www.google.com/search')
-      .query(q: query)
-      .get() (err, res, body) ->
-        cb body.match(/class="r"><a href="\/url\?q=([^"]*)(&amp;sa.*)">/)?[1] || "Sorry, Google had zero results for '#{query}'"
+  # robot.respond /\b(goog(le me|le))?\b (.*)/i, (res) ->
+  #   googleMe res, res.match[3], (url) ->
+  #     res.send "It looks like this might help you on your search :mag:\n#{url}"
+  #
+  # it looks like this needs to be indented, but if it is it doesn't work
+  # and at it's current level it gets fired whenever anything is asked of Timmy...
+  # googleMe = (msg, query, cb) ->
+  #   msg.http('http://www.google.com/search')
+  #     .query(q: query)
+  #     .get() (err, res, body) ->
+  #       cb body.match(/class="r"><a href="\/url\?q=([^"]*)(&amp;sa.*)">/)?[1] || "Sorry, Google had zero results for '#{query}'"
 
   # youtube
   # robot.respond /\b(vid(eo me|eo))?\b (.*)/i, (res) ->
