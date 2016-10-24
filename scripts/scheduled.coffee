@@ -28,6 +28,5 @@ module.exports = (robot) ->
     # Burger Friday
     if day == 5 and hour == 20 and minute == 0
       robot.send room: 'general', "Hooray, it's Burger Friday! :hamburger: TIMMY!!"
-    robot.send room: 'testing', "Hooray, it's Monday on #{day}!"
     return
   ), 60000
