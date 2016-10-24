@@ -55,7 +55,7 @@ module.exports = (robot) ->
       options = res.match[1].split(' ')
       res.reply("Definitely \"#{res.random options}\".")
 
-  robot.respond /pick one* (.*) or (.*?)\??$/i, (res) ->
+  robot.respond /pick one:* (.*) or (.*?)\??$/i, (res) ->
     choosen_response = res.random [1..5]
     if choosen_response >= 3
       res.send res.random uhh_what
