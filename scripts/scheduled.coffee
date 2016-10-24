@@ -22,17 +22,12 @@ module.exports = (robot) ->
     hour = time.getHours()
     minute = time.getMinutes()
     second = time.getSeconds()
-    # if hour < 12
-    #   suff = 'am'
-    # if hour > 12
-    #   suff = 'pm'
-    # if hour == 0
-    #   hour = 12
     # Taco Tuesday
     if day == 2 and hour == 12 and minute == 0
       robot.send room: 'general', "Hooray, it's Taco Tuesday! :taco: TIMMY!!"
     # Burger Friday
     if day == 5 and hour == 12 and minute == 0
       robot.send room: 'general', "Hooray, it's Burger Friday! :hamburger: TIMMY!!"
+    robot.send room: 'testing', "Hooray, it's Monday!"
     return
   ), 60000
