@@ -64,23 +64,17 @@ module.exports = (robot) ->
       res.reply "Sure, I love #{stuffHad} TIMMY!!"
     robot.brain.set 'totalStuff', stuffTotal+1
 
+  # sleep it off
   robot.respond /sleep it off/i, (res) ->
     robot.brain.set 'totalStuff', 0
     res.reply "zzzzz"
 
   # speak
-  #   res.send res.random response
-  #
-  # robot.hear /speak/i, (res) ->
-  notNow = new RegExp "(not now #{robot.name}|#{robot.name}(, not now|\snot now))", "i"
-  robot.hear notNow, (res) ->
-    sender = res.message.user.name.toLowerCase()
-    res.send "If not now, when @#{sender}? TIMMY!!"
-
   hubotSpeaks = new RegExp "(speak #{robot.name}|#{robot.name} speak)", "i"
   robot.hear hubotSpeaks, (res) ->
     res.send res.random speak
 
+  # lyrics
   robot.respond /lyrics '(.*)'/i, (res) ->
     res.http("http://dukeofcheese.com/dev/hubot/olive/songs.json")
       .get() (err, res, body) ->
@@ -93,6 +87,7 @@ module.exports = (robot) ->
           else
             res.send "..."
 
+  # song lyrics
   robot.respond /song (.*) by (.*)/i, (res) ->
     songTitle = res.match[1]
     songTitle = songTitle.replace(/\s/i,'%20')
@@ -140,6 +135,7 @@ module.exports = (robot) ->
     res.send (res.random users).split(" ")[0] + " " + res.match[1] + "!"
 
   # Timmy good morning
-  robot.respond /good\smorning/i, (res) ->
+  morning = new RegExp "(good\smorning\s#{robot.name}|#{robot.name}\sgood\smorning)", "i"
+  robot.hear morning, (res) ->
     sender = res.message.user.name.toLowerCase()
-    res.reply "Good morning, @#{sender}! [res.random speak]"
+    res.reply "Good morning, @#{sender}!" + res.random speak
