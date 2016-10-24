@@ -17,17 +17,17 @@ module.exports = (robot) ->
 
   # days of the week
   setInterval (->
-    # time = new Date
-    # day = time.getDay()
-    # hour = time.getHours()
-    # minute = time.getMinutes()
-    # second = time.getSeconds()
-    # # Taco Tuesday
+    time = new Date
+    day = time.getDay()
+    hour = time.getHours()
+    minute = time.getMinutes()
+    second = time.getSeconds()
+    # Taco Tuesday
     # if day == 2 and hour == 12 and minute == 0
     #   robot.send room: 'general', "Hooray, it's Taco Tuesday! :taco: TIMMY!!"
-    # # Burger Friday
+    # Burger Friday
     # if day == 5 and hour == 12 and minute == 0
     #   robot.send room: 'general', "Hooray, it's Burger Friday! :hamburger: TIMMY!!"
-    robot.send room: 'testing', "Hooray, it's Monday!"
+    robot.send room: 'testing', "Hooray, it's Monday at #{hour}!"
     return
   ), 60000
