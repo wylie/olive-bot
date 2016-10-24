@@ -135,7 +135,7 @@ module.exports = (robot) ->
     res.send (res.random users).split(" ")[0] + " " + res.match[1] + "!"
 
   # Timmy good morning
-  morning = new RegExp "(good\smorning\s#{robot.name}|#{robot.name}\sgood\smorning)", "i"
-  robot.hear morning, (res) ->
+  goodMorning = new RegExp "(good morning #{robot.name}|#{robot.name} good morning)", "i"
+  robot.hear goodMorning, (res) ->
     sender = res.message.user.name.toLowerCase()
     res.reply "Good morning, @#{sender}!" + res.random speak
