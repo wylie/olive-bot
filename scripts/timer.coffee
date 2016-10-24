@@ -20,7 +20,7 @@ module.exports = (robot) ->
   # stop the timer
   robot.hear /(timer\sstart|start\stimer)/i, (res) ->
     startTime = (new Date)
-    startTime = robot.brain.get('startTime')
+    # startTime = robot.brain.get('startTime')
     if startTime > 0
       res.reply "Looks like you have a timer going already"
     else
