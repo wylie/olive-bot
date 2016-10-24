@@ -1,5 +1,6 @@
 [
   "hubot-heroku-keepalive",
   "hubot-redis-brain",
-  "hubot-thank-you"
+  "hubot-thank-you",
+  "hubot-trello"
 ]
