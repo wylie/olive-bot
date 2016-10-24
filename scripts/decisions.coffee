@@ -45,10 +45,10 @@ module.exports = (robot) ->
 
   # choose between
   robot.respond /choose between ([^"]+)/i, (res) ->
-      # options = res.match[1].split(' ')
+      options = res.match[1].split(' ')
       # res.reply("Definitely \"#{res.random options}\".")
-      # res.reply "You entered: #{options}"
-      res.reply "choose between"
+      res.reply "You entered: #{options}"
+      # res.reply "choose between"
 
   # choose between
   robot.respond /choose one ([^"]+)/i, (res) ->
