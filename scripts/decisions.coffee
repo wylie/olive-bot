@@ -44,7 +44,7 @@ ball = [
 module.exports = (robot) ->
 
   # choose between
-  robot.respond /choose between ([^"]+)/i, (msg) ->
+  robot.respond /(choose\sbetween ([^"]+))/i, (msg) ->
       options = sg.match[1].split(' ')
       msg.reply("Definitely \"#{msg.random options}\".")
 
@@ -53,7 +53,7 @@ module.exports = (robot) ->
     res.reply res.random thecoin
 
   # dice
-  robot.respond /(throw|roll|toss) the die/i, (res) ->
+  robot.respond /(throw|roll|toss) the di(e|ce)/i, (res) ->
     res.reply res.random thedie
 
   robot.respond /(eightball|8ball)(.*)/i, (res) ->
