@@ -44,11 +44,24 @@ ball = [
 module.exports = (robot) ->
 
   # choose between
-  robot.respond /choose\sbetween ([^"]+)/i, (res) ->
-      options = sg.match[1].split(' ')
+  robot.respond /choose between ([^"]+)/i, (res) ->
+      # options = sg.match[1].split(' ')
       # res.reply("Definitely \"#{res.random options}\".")
       # res.reply "You entered: #{options}"
-      res.reply "oh yeah!"
+      res.reply "choose between"
+
+  # choose between
+  robot.respond /choose between ([^"]+)/i, (res) ->
+      options = sg.match[1]
+      # res.reply("Definitely \"#{res.random options}\".")
+      res.reply "You entered: #{options}"
+
+  # choose
+  robot.respond /choose:\s([^"]+)/i, (res) ->
+      # options = sg.match[1].split(' ')
+      # res.reply("Definitely \"#{res.random options}\".")
+      # res.reply "You entered: #{options}"
+      res.reply "choose:"
 
   # coin
   robot.respond /(throw|flip|toss) a coin/i, (res) ->
