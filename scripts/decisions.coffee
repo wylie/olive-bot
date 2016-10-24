@@ -9,6 +9,7 @@
 #
 # Commands:
 #   hubot choose between N - Hubot can help you choose between two things
+#   hubot pick one <text> or <text>?
 #   hubot throw/flip/toss a coin - Heads or tails?
 #   hubot throw/roll/toss a die - Get a number 1–6
 #   hubot eightball/8ball - Get a Magic Eight Ball answer
@@ -40,6 +41,12 @@ ball = [
   "Outlook not so good",
   "Very doubtful",
 ]
+uhh_what = [
+    "I could tell you, but then I'd have to kill you",
+    "Answering that would be a matter of national security",
+    "You can't possibly compare them!",
+    "Both hold a special place in my heart"
+  ]
 
 module.exports = (robot) ->
 
@@ -47,6 +54,13 @@ module.exports = (robot) ->
   robot.respond /choose between ([^"]+)/i, (res) ->
       options = res.match[1].split(' ')
       res.reply("Definitely \"#{res.random options}\".")
+
+  robot.respond /pick one* (.*) or (.*?)\??$/i, (res) ->
+    choosen_response = res.random [1..5]
+    if choosen_response >= 3
+      res.send res.random uhh_what
+    else
+      res.send "Clearly #{res.match[choosen_response + 2]} is #{res.match[2]}"
 
   # coin
   robot.respond /(throw|flip|toss) a coin/i, (res) ->
