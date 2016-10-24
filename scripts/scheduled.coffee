@@ -23,11 +23,11 @@ module.exports = (robot) ->
     minute = time.getMinutes()
     second = time.getSeconds()
     # Taco Tuesday
-    # if day == 2 and hour == 12 and minute == 0
-    #   robot.send room: 'general', "Hooray, it's Taco Tuesday! :taco: TIMMY!!"
+    if day == 2 and hour == 20 and minute == 0
+      robot.send room: 'general', "Hooray, it's Taco Tuesday! :taco: TIMMY!!"
     # Burger Friday
-    # if day == 5 and hour == 12 and minute == 0
-    #   robot.send room: 'general', "Hooray, it's Burger Friday! :hamburger: TIMMY!!"
-    robot.send room: 'testing', "Hooray, it's Monday at #{hour}!"
+    if day == 5 and hour == 20 and minute == 0
+      robot.send room: 'general', "Hooray, it's Burger Friday! :hamburger: TIMMY!!"
+    robot.send room: 'testing', "Hooray, it's Monday on #{day}!"
     return
   ), 60000
