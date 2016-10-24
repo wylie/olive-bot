@@ -138,4 +138,4 @@ module.exports = (robot) ->
   goodMorning = new RegExp "(good morning #{robot.name}|#{robot.name} good morning)", "i"
   robot.hear goodMorning, (res) ->
     sender = res.message.user.name.toLowerCase()
-    res.reply "Good morning, @#{sender}!" + res.random speak
+    res.reply "Good morning, @#{sender}! :sunrise: " + res.random speak
