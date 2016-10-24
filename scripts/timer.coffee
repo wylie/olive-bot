@@ -20,7 +20,7 @@ module.exports = (robot) ->
   # stop the timer
   robot.hear /(timer\sstart|start\stimer)/i, (res) ->
     startTime = (new Date)
-    res.reply robot.brain.startTime
+    res.reply robot.brain.remove startTime
     # startTime = robot.brain.get('startTime')
     # if startTime > 0
     #   res.reply "#{startTime}, Looks like you have a timer going already, you can ask me to stop the timer if you want to start a new one"
@@ -52,19 +52,20 @@ module.exports = (robot) ->
     # display the timer
     robot.hear /(timer\sshow|show\stimer)/i, (res) ->
       startTime = robot.brain.get('startTime')
-      stopTime = (new Date)
-      time = stopTime - startTime
-      hour = new Date(time).getHours()
-      minute = new Date(time).getMinutes()
-      second = new Date(time).getSeconds()
-      final = ''
-      if hour > 0
-        final += hour + ' hour, '
-      if hour > 0 or minute > 0
-        final += minute + ' minutes and '
-      if second >= 0
-        if second > 1
-          final += second + ' seconds'
-        else
-          final += second + ' second'
-      res.reply "The timer has been going for: *#{final}*! :timer_clock:"
+      res.reply startTime
+      # stopTime = (new Date)
+      # time = stopTime - startTime
+      # hour = new Date(time).getHours()
+      # minute = new Date(time).getMinutes()
+      # second = new Date(time).getSeconds()
+      # final = ''
+      # if hour > 0
+      #   final += hour + ' hour, '
+      # if hour > 0 or minute > 0
+      #   final += minute + ' minutes and '
+      # if second >= 0
+      #   if second > 1
+      #     final += second + ' seconds'
+      #   else
+      #     final += second + ' second'
+      # res.reply "The timer has been going for: *#{final}*! :timer_clock:"
