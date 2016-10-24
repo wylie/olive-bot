@@ -51,7 +51,7 @@ module.exports = (robot) ->
       res.reply "choose between"
 
   # choose between
-  robot.respond /choose between ([^"]+)/i, (res) ->
+  robot.respond /choose one ([^"]+)/i, (res) ->
       options = sg.match[1]
       # res.reply("Definitely \"#{res.random options}\".")
       res.reply "You entered: #{options}"
