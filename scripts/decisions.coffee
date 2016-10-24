@@ -47,21 +47,6 @@ module.exports = (robot) ->
   robot.respond /choose between ([^"]+)/i, (res) ->
       options = res.match[1].split(' ')
       res.reply("Definitely \"#{res.random options}\".")
-      # res.reply "You entered: #{options}"
-      # res.reply "choose between"
-
-  # choose between
-  robot.respond /choose one ([^"]+)/i, (res) ->
-      options = res.match[1]
-      # res.reply("Definitely \"#{res.random options}\".")
-      res.reply "You entered: #{options}"
-
-  # choose
-  robot.respond /choose:\s([^"]+)/i, (res) ->
-      # options = res.match[1].split(' ')
-      # res.reply("Definitely \"#{res.random options}\".")
-      # res.reply "You entered: #{options}"
-      res.reply "choose:"
 
   # coin
   robot.respond /(throw|flip|toss) a coin/i, (res) ->
