@@ -21,6 +21,7 @@
 #   hubot wrong answer - Further the "What can you do?" conversation
 #   hubot who <query> - Hubot tells you users in the current channel
 #   hubot good morning - Give Hubot a morning greeting
+#   hubot thanks - Give thanks to  Hubot
 #
 # Author:
 #   Wylie
