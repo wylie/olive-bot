@@ -61,8 +61,8 @@ module.exports = (robot) ->
     if choosen_response >= 3
       res.send res.random uhh_what
     else
-      # res.send "#{res.match[choosen_response + 2]}"
-      res.send "Clearly #{res.match[choosen_response + num]} is #{res.match[num]}"
+      res.send choosen_response
+      # res.send "Clearly #{res.match[choosen_response + num]} is #{res.match[num]}"
 
   # coin
   robot.respond /(throw|flip|toss) a coin/i, (res) ->
