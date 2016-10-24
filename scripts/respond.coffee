@@ -18,7 +18,7 @@
 #   hubot channel - Hubot tells you what channel you are in
 #   hubot hi - Say hi to Hubot
 #   hubot what can you do - Find out what hubot can do
-#   hubot wrong answer - Further the conversation
+#   hubot wrong answer - Further the "What can you do?" conversation
 #   hubot who <query> - Hubot tells you users in the current channel
 #   hubot good morning - Give Hubot a morning greeting
 #
@@ -110,7 +110,7 @@ module.exports = (robot) ->
     users = []
     for own key, user of robot.brain.users
       users.push "#{user.name}" if "#{user.name}" != robot.name
-    res.send (res.random users).split(" ")[0] + " " + res.match[2] + "!"
+    res.send (res.random users).split(" ")[0] + " " + res.match[1] + "!"
 
   # Timmy good morning
   robot.respond /good morning/i, (res) ->
