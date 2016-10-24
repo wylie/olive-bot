@@ -19,15 +19,15 @@ module.exports = (robot) ->
 
   # stop the timer
   robot.hear /(timer\sstart|start\stimer)/i, (res) ->
-    oldTime = (new Date)
-    robot.brain.set 'oldTime', oldTime
+    startTime = (new Date)
+    robot.brain.set 'startTime', startTime
     res.reply "The timer has begun! :timer_clock:"
 
   # stop the timer
   robot.hear /(timer\sstop|stop\stimer)/i, (res) ->
-    oldTime = robot.brain.get('oldTime')
-    newTime = (new Date)
-    time = newTime - oldTime
+    startTime = robot.brain.get('startTime')
+    stopTime = (new Date)
+    time = stopTime - startTime
     hour = new Date(time).getHours()
     minute = new Date(time).getMinutes()
     second = new Date(time).getSeconds()
@@ -42,24 +42,24 @@ module.exports = (robot) ->
       else
         final += second + ' second'
     res.reply "Total time: *#{final}*! :timer_clock: :+1:"
-    robot.brain.set 'oldTime', 0
+    robot.brain.set 'startTime', 0
 
     # display the timer
     robot.hear /(timer\sshow|show\stimer)/i, (res) ->
-      oldTime = robot.brain.get('oldTime')
-      newTime = (new Date)
-      time = newTime - oldTime
+      startTime = robot.brain.get('startTime')
+      stopTime = (new Date)
+      time = stopTime - startTime
       hour = new Date(time).getHours()
       minute = new Date(time).getMinutes()
       second = new Date(time).getSeconds()
       final = ''
       if hour > 0
         final += hour + ' hour, '
-        if hour > 0 or minute > 0
-          final += minute + ' minutes and '
-          if second >= 0
-            if second > 1
-              final += second + ' seconds'
-            else
-              final += second + ' second'
-              res.reply "The timer has been going for: *#{final}*! :timer_clock:"
+      if hour > 0 or minute > 0
+        final += minute + ' minutes and '
+      if second >= 0
+        if second > 1
+          final += second + ' seconds'
+        else
+          final += second + ' second'
+      res.reply "The timer has been going for: *#{final}*! :timer_clock:"
