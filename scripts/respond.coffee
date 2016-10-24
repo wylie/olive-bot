@@ -25,7 +25,30 @@
 # Author:
 #   Wylie
 
+response = [
+  "you're welcome",
+  "no problem",
+  "not a problem",
+  "no problem at all",
+  "don’t mention it",
+  "it’s no bother",
+  "it’s my pleasure",
+  "my pleasure",
+  "it’s nothing",
+  "think nothing of it",
+  "no, no. thank you!",
+  "sure thing"
+]
+
 module.exports = (robot) ->
+
+  # thanks
+  robot.respond /thank(s| you)/i, (res) ->
+    res.send res.random response
+  thanks = new RegExp "thank(s| you) #{robot.name}", "i"
+  robot.hear thanks, (res) ->
+    res.send res.random response
+
 
   # have a soda
   robot.respond /have a (((:.*:))|(.\w+\b))/i, (res) ->

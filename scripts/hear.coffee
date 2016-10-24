@@ -1,5 +1,5 @@
 # Description:
-#   Let's hear Hubot speak!
+#   Hubot hears something...
 #
 # Dependencies:
 #   None
@@ -8,11 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot eightball - Get a Magic Eight Ball answer
-#   hubot flip a coin - Flip a coin
-#   hubot roll the die - Roll the dice
-#   hubot have a [anything] - eat or drink anything
-#   hubot speak - It speaks!
+#   None
 #
 # Author:
 #   Wylie
