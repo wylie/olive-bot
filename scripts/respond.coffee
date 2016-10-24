@@ -64,11 +64,11 @@ module.exports = (robot) ->
     res.reply "zzzzz"
 
   # speak
-  speak = new RegExp "(speak #{robot.name}|#{robot.name} speak)", "i"
-  robot.hear speak, (res) ->
   #   res.send res.random response
   #
   # robot.hear /speak/i, (res) ->
+  talk = new RegExp "(speak #{robot.name}|#{robot.name} speak)", "i"
+  robot.hear talk, (res) ->
     res.http("http://dukeofcheese.com/dev/hubot/timmy/speak.json")
       .get() (err, res, body) ->
         json = JSON.parse(body)
@@ -116,7 +116,7 @@ module.exports = (robot) ->
     res.send "This channel is: ##{room} :house_with_garden:"
 
   # hi
-  robot.respond /(\bhi\b)/gi, (res) ->
+  robot.respond /\b(hi)\b/i, (res) ->
     sender = res.message.user.name.toLowerCase()
     res.send "HI @#{sender}! TIMMY!!"
 
@@ -131,14 +131,14 @@ module.exports = (robot) ->
     res.send "Sorry, @#{sender}, what would you have my answer be?"
 
   # who's in this room
-  robot.respond /(who) (.+)\?/i, (res) ->
+  robot.respond /(who)\s(.+)\?/i, (res) ->
     users = []
     for own key, user of robot.brain.users
       users.push "#{user.name}" if "#{user.name}" != robot.name
     res.send (res.random users).split(" ")[0] + " " + res.match[1] + "!"
 
   # Timmy good morning
-  robot.respond /good morning/i, (res) ->
+  robot.respond /good\smorning/i, (res) ->
     res.http("http://dukeofcheese.com/dev/hubot/timmy/speak.json")
       .get() (err, res, body) ->
         json = JSON.parse(body)
