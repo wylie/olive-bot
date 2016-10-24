@@ -39,6 +39,11 @@ response = [
   "no, no. thank you!",
   "sure thing"
 ]
+speak = [
+  "LIVIN' A LIE!!",
+  "TIMMY!!",
+  "TIMMEH!!"
+]
 
 module.exports = (robot) ->
 
@@ -67,17 +72,14 @@ module.exports = (robot) ->
   #   res.send res.random response
   #
   # robot.hear /speak/i, (res) ->
-  talk = new RegExp "(speak\s#{robot.name}|#{robot.name}\sspeak)", "i"
-  robot.hear talk, (res) ->
-    res.http("http://dukeofcheese.com/dev/hubot/timmy/speak.json")
-      .get() (err, res, body) ->
-        json = JSON.parse(body)
-        switch res.statusCode
-          when 200
-            num = Math.floor(Math.random() * json.speak.length)
-            res.send json.speak[num]
-          else
-            res.send "..."
+  notNow = new RegExp "(not now #{robot.name}|#{robot.name}(, not now|\snot now))", "i"
+  robot.hear notNow, (res) ->
+    sender = res.message.user.name.toLowerCase()
+    res.send "If not now, when @#{sender}? TIMMY!!"
+
+  hubotSpeaks = new RegExp "(speak #{robot.name}|#{robot.name} speak)", "i"
+  robot.hear hubotSpeaks, (res) ->
+    res.send res.random speak
 
   robot.respond /lyrics '(.*)'/i, (res) ->
     res.http("http://dukeofcheese.com/dev/hubot/olive/songs.json")
@@ -139,13 +141,5 @@ module.exports = (robot) ->
 
   # Timmy good morning
   robot.respond /good\smorning/i, (res) ->
-    res.http("http://dukeofcheese.com/dev/hubot/timmy/speak.json")
-      .get() (err, res, body) ->
-        json = JSON.parse(body)
-        switch res.statusCode
-          when 200
-            num = Math.floor(Math.random() * json.speak.length)
-            sender = res.message.user.name.toLowerCase()
-            res.reply "Good morning, @#{sender}! " + json.speak[num]
-          else
-            res.reply "..."
+    sender = res.message.user.name.toLowerCase()
+    res.reply "Good morning, @#{sender}! [res.random speak]"
