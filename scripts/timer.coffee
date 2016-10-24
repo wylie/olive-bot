@@ -18,13 +18,13 @@
 module.exports = (robot) ->
 
   # stop the timer
-  robot.respond /timer\sstart/i, (res) ->
+  robot.hear /timer\sstart/i, (res) ->
     oldTime = (new Date)
     robot.brain.set 'oldTime', oldTime
     res.reply "The timer has begun! :timer_clock:"
 
   # stop the timer
-  robot.respond /timer\sstop/i, (res) ->
+  robot.hear /timer\sstop/i, (res) ->
     oldTime = robot.brain.get('oldTime')
     newTime = (new Date)
     time = newTime - oldTime
@@ -45,7 +45,7 @@ module.exports = (robot) ->
     robot.brain.set 'oldTime', 0
 
     # display the timer
-    robot.respond /timer\sshow/i, (res) ->
+    robot.hear /timer\sshow/i, (res) ->
       oldTime = robot.brain.get('oldTime')
       newTime = (new Date)
       time = newTime - oldTime
