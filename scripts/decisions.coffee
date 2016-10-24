@@ -47,7 +47,8 @@ module.exports = (robot) ->
   robot.respond /choose\sbetween ([^"]+)/i, (res) ->
       options = sg.match[1].split(' ')
       # res.reply("Definitely \"#{res.random options}\".")
-      res.reply "You entered: #{options}"
+      # res.reply "You entered: #{options}"
+      res.reply "oh yeah!"
 
   # coin
   robot.respond /(throw|flip|toss) a coin/i, (res) ->
