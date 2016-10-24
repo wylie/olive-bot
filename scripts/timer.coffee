@@ -46,8 +46,8 @@ module.exports = (robot) ->
       else
         final += second + ' second'
     res.reply "Total time: *#{final}*! :timer_clock: :+1:"
-    # robot.brain.set 'startTime', 0
-    robot.brain.remove 'startTime'
+    robot.brain.set 'startTime', 0
+    # robot.brain.remove 'startTime'
 
     # display the timer
     robot.hear /(timer\sshow|show\stimer)/i, (res) ->
