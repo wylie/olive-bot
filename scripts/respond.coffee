@@ -18,7 +18,6 @@
 #   hubot channel - Hubot tells you what channel you are in
 #   hubot hi - Say hi to Hubot
 #   hubot what can you do - Find out what hubot can do
-#   hubot wrong answer - Further the "What can you do?" conversation
 #   hubot who <query> - Hubot tells you users in the current channel
 #   hubot good morning - Give Hubot a morning greeting
 #   hubot thanks - Give thanks to  Hubot
@@ -50,7 +49,6 @@ module.exports = (robot) ->
   robot.hear thanks, (res) ->
     res.send res.random response
 
-
   # have a soda
   robot.respond /have a (((:.*:))|(.\w+\b))/i, (res) ->
     stuffHad = res.match[1]
@@ -66,7 +64,11 @@ module.exports = (robot) ->
     res.reply "zzzzz"
 
   # speak
-  robot.respond /speak/i, (res) ->
+  speak = new RegExp "(speak #{robot.name}|#{robot.name} speak)", "i"
+  robot.hear speak, (res) ->
+  #   res.send res.random response
+  #
+  # robot.hear /speak/i, (res) ->
     res.http("http://dukeofcheese.com/dev/hubot/timmy/speak.json")
       .get() (err, res, body) ->
         json = JSON.parse(body)
