@@ -67,7 +67,7 @@ module.exports = (robot) ->
   #   res.send res.random response
   #
   # robot.hear /speak/i, (res) ->
-  talk = new RegExp "(speak #{robot.name}|#{robot.name} speak)", "i"
+  talk = new RegExp "(speak\s#{robot.name}|#{robot.name}\sspeak)", "i"
   robot.hear talk, (res) ->
     res.http("http://dukeofcheese.com/dev/hubot/timmy/speak.json")
       .get() (err, res, body) ->
