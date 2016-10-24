@@ -57,10 +57,12 @@ module.exports = (robot) ->
 
   robot.respond /pick one:* (.*) or (.*?)\??$/i, (res) ->
     choosen_response = res.random [1..5]
+    num = res.random [1..2]
     if choosen_response >= 3
       res.send res.random uhh_what
     else
-      res.send "Clearly #{res.match[choosen_response + 2]} is #{res.match[2]}"
+      # res.send "#{res.match[choosen_response + 2]}"
+      res.send "Clearly #{res.match[choosen_response + 2]} is #{res.match[num]}"
 
   # coin
   robot.respond /(throw|flip|toss) a coin/i, (res) ->
