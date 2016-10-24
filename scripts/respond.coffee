@@ -30,7 +30,6 @@ module.exports = (robot) ->
   # have a soda
   robot.respond /have a (((:.*:))|(.\w+\b))/i, (res) ->
     stuffHad = res.match[1]
-    #res.reply stuffHad
     stuffTotal = robot.brain.get('totalStuff') * 1 or 0
     if stuffTotal > 4
       res.reply "I'm too full for any more..."

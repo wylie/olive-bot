@@ -43,14 +43,6 @@ module.exports = (robot) ->
           else
             msg.send "..."
 
-  # zombie jesus
-  robot.hear /(\bsweet\b|\bzombie\b|\bjesus\b|\bsweet jesus\b|\bzombie jesus\b|\bsweet zombie jesus\b)/i, (res) ->
-    res.send "http://rs777.pbsrc.com/albums/yy59/gaderffii/SweetZombieJesus.jpg~c200"
-
-  # the rock
-  robot.hear /(\bsmell\b|\brock\b|\bcooking\b)/i, (res) ->
-    res.send "http://www.awesomelyluvvie.com/wp-content/uploads/2014/07/the-rock-fanny-pack.jpg"
-
   # get/buy(ing) beer(s)
   robot.hear /(((\bget\b)|(\bbuy\b|\bbuying\b))\s(\bbeer\b|\bbeers\b))/i, (res) ->
     sender = res.message.user.name.toLowerCase()
