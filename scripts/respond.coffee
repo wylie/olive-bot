@@ -43,43 +43,43 @@ module.exports = (robot) ->
     res.reply "zzzzz"
 
   # speak
-  robot.respond /speak/i, (msg) ->
-    msg.http("http://dukeofcheese.com/dev/hubot/timmy/speak.json")
+  robot.respond /speak/i, (res) ->
+    res.http("http://dukeofcheese.com/dev/hubot/timmy/speak.json")
       .get() (err, res, body) ->
         json = JSON.parse(body)
         switch res.statusCode
           when 200
             num = Math.floor(Math.random() * json.speak.length)
-            msg.send json.speak[num]
+            res.send json.speak[num]
           else
-            msg.send "..."
+            res.send "..."
 
-  robot.respond /lyrics '(.*)'/i, (msg) ->
-    msg.http("http://dukeofcheese.com/dev/hubot/olive/songs.json")
+  robot.respond /lyrics '(.*)'/i, (res) ->
+    res.http("http://dukeofcheese.com/dev/hubot/olive/songs.json")
       .get() (err, res, body) ->
         json = JSON.parse(body)
         switch res.statusCode
           when 200
-            songTitle = msg.match[1]
+            songTitle = res.match[1]
             songLyrics = json.songs[songTitle]
-            msg.send songLyrics
+            res.send songLyrics
           else
-            msg.send "..."
+            res.send "..."
 
-  robot.respond /song (.*) by (.*)/i, (msg) ->
-    songTitle = msg.match[1]
+  robot.respond /song (.*) by (.*)/i, (res) ->
+    songTitle = res.match[1]
     songTitle = songTitle.replace(/\s/i,'%20')
-    songArtist = msg.match[2]
+    songArtist = res.match[2]
     songArtist = songArtist.replace(/\s/i,'%20')
     myUrl = "http://api.lyricsnmusic.com/songs?api_key=085157dded76ca409d9cd41b300453&q=#{songArtist}%20#{songTitle}";
-    msg.http(myUrl)
+    res.http(myUrl)
       .get() (err, res, body) ->
         json = JSON.parse(body)
         switch res.statusCode
           when 200
-            msg.send myUrl
+            res.send myUrl
           else
-            msg.send "..."
+            res.send "..."
 
   # user
   robot.respond /user/i, (res) ->
