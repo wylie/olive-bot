@@ -133,7 +133,28 @@ module.exports = (robot) ->
     sender = res.message.user.name.toLowerCase()
     time = new Date
     day = time.getDay()
-    res.send "Hey @#{sender}, today is #{day}! :+1:" + res.random speak
+    # res.send "Hey @#{sender}, today is #{day}! :+1:" + res.random speak
+    # Monday
+    if day == 1
+      robot.reply "Hey @#{sender}, today is Monday! :+1:" + res.random speak
+    # Taco Tuesday
+    if day == 2
+      robot.reply "Hey @#{sender}, it's Taco Tuesday! :taco:" + res.random speak
+    # Wednesday
+    if day == 3
+      robot.reply "Hey @#{sender}, today is Wednesday! :tangotucan:" + res.random speak
+    # Thursday
+    if day == 4
+      robot.reply "Hey @#{sender}, today is Thursday! :aw_yeah:" + res.random speak
+    # Burger Friday
+    if day == 5
+      robot.reply "Hey @#{sender}, it's Burger Friday! :hamburger:" + res.random speak
+    # Saturday
+    if day == 6
+      robot.reply "Hey @#{sender}, today is Saturday! :pump_girl:" + res.random speak
+    # Sunday
+    if day == 7
+      robot.reply "Hey @#{sender}, today is Sunday! :tada:" + res.random speak
 
   # who's in this room
   robot.respond /(who)\s(.+)\?/i, (res) ->
