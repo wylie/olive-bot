@@ -147,7 +147,7 @@ module.exports = (robot) ->
     sender = res.message.user.name.toLowerCase()
     time = new Date
     day = time.getDay()
-    robot.reply "Hey @#{sender}, the day is #{{day}}! :+1:" + res.random speak
+    robot.reply "Hey @#{sender}, the day is #{day}!"
     # Monday
     # if day == 1
     #   robot.reply "Hey @#{sender}, today is Monday! :+1:" + res.random speak
