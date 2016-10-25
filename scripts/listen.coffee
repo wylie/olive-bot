@@ -17,7 +17,7 @@ module.exports = (robot) ->
 
   robot.hear /\b(some\sthing)\b/i, (res) ->
     username = res.message.user.name
-    resa.reply "You are `#{username}`!"
+    res.reply "You are `#{username}`!"
 
   robot.listen(
     (message) -> # Match function
