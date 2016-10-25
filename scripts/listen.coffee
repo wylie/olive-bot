@@ -37,9 +37,3 @@ module.exports = (robot) ->
       sender = res.message.user.name.toLowerCase()
       response.reply "YOU'RE MY BEST FRIEND!"
   )
-
-  robot.error (err, res) ->
-    robot.logger.error "DOES NOT COMPUTE: #{err}"
-
-    if res?
-      res.reply "DOES NOT COMPUTE: #{err}"
