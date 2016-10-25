@@ -16,7 +16,7 @@
 module.exports = (robot) ->
 
   robot.hear /\b(some\sthing)\b/i, (res) ->
-    username = message.user.name
+    username = res.message.user.name
     resa.send "You are `#{username}`!"
 
   robot.listen(
@@ -39,7 +39,7 @@ module.exports = (robot) ->
   )
 
   robot.error (err, res) ->
-    robot.logger.error "DOES NOT COMPUTE"
+    robot.logger.error "DOES NOT COMPUTE: #{err}"
 
     if res?
       res.reply "DOES NOT COMPUTE"
