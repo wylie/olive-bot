@@ -15,6 +15,10 @@
 
 module.exports = (robot) ->
 
+  robot.hear //i, (res) ->
+    username = message.user.name
+    resa.send "You are `#{username}`!"
+
   robot.listen(
     (message) -> # Match function
       # Occassionally respond to things that Rob says
@@ -33,3 +37,9 @@ module.exports = (robot) ->
       sender = res.message.user.name.toLowerCase()
       response.reply "HI @#{sender}! YOU'RE MY BEST FRIEND!"
   )
+
+  robot.error (err, res) ->
+    robot.logger.error "DOES NOT COMPUTE"
+
+    if res?
+      res.reply "DOES NOT COMPUTE"
