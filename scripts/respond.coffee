@@ -148,6 +148,14 @@ module.exports = (robot) ->
     time = new Date
     day = time.getDay()
     robot.reply "Hey @#{sender}, the day is #{day}!"
+
+  # whatDayIsIt = new RegExp "(what day is it #{robot.name}|#{robot.name} what day is it)", "i"
+  # robot.hear whatDayIsIt, (res) ->
+  robot.respond /\b(what day is it)\b/i, (res) ->
+    sender = res.message.user.name.toLowerCase()
+    time = new Date
+    day = time.getDay()
+    robot.reply "Hey @#{sender}, the day is #{day}!"
     # Monday
     # if day == 1
     #   robot.reply "Hey @#{sender}, today is Monday! :+1:" + res.random speak
