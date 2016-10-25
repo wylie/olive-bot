@@ -15,7 +15,7 @@
 
 module.exports = (robot) ->
 
-  robot.hear //i, (res) ->
+  robot.hear /\b(some\sthing)\b/i, (res) ->
     username = message.user.name
     resa.send "You are `#{username}`!"
 
