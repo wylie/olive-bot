@@ -51,7 +51,14 @@ speak = [
   "TIMMEH!!"
 ]
 times = [
-  "It's beer time!",
+  "It's time for you to shut the hell up",
+  "It's time for a beer",
+  "It's time to get to work",
+  "It's time to party",
+  "It's time to leave",
+  "It's time to talk about some difficult things",
+  "It's time for you to stop being annoying",
+  "It's beer time",
   "It's time to get busy"
 ]
 
