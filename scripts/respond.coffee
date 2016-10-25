@@ -142,7 +142,7 @@ module.exports = (robot) ->
     res.reply "Good morning, @#{sender}! :sunrise: " + res.random speak
 
   # TESTING
-  robot.respond /(what\scan\syou\sdo)/i, (res) ->
+  robot.respond /(what\sis\sbananas)/i, (res) ->
     sender = res.message.user.name.toLowerCase()
     res.send "I can kick your ass, @#{sender}! :knife: TIMMY!!"
 
