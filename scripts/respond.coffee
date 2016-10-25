@@ -50,7 +50,7 @@ speak = [
   "TIMMAY!!",
   "TIMMEH!!"
 ]
-times = [
+whatTime = [
   "It's time for you to shut the hell up",
   "It's time for a beer",
   "It's time to get to work",
@@ -123,7 +123,7 @@ module.exports = (robot) ->
   # what time is it
   robot.respond /\b(what time is it)\b/i, (res) ->
     sender = res.message.user.name.toLowerCase()
-    res.send res.random times + ", @#{sender}!"
+    res.send "Thanks for asking, @#{sender}! " + res.random whatTime
 
   # user
   robot.respond /user/i, (res) ->
