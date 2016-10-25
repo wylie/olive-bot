@@ -129,11 +129,12 @@ module.exports = (robot) ->
     res.send "Sorry, @#{sender}, what would you have my answer be?"
 
   # TESTING
-  robot.respond /\b(kerpow)\b/i, (res) ->
+  # robot.respond /\b(kerpow)\b/i, (res) ->
+  whatDayIsIt = new RegExp "(what day is it #{robot.name}|#{robot.name} what day is it)", "i"
+  robot.hear whatDayIsIt, (res) ->
     sender = res.message.user.name.toLowerCase()
     time = new Date
     day = time.getDay()
-    # res.send "Hey @#{sender}, today is #{day}! :+1:" + res.random speak
     # Monday
     if day == 1
       res.send "Hey @#{sender}, today is Monday! :+1:" + res.random speak
