@@ -22,6 +22,7 @@
 #   hubot good morning - Give Hubot a morning greeting
 #   hubot thanks - Give thanks to Hubot
 #   hubot what day is it - Ask Hubot what day it is
+#   hubot what time is it - Ask Hubot what time it is
 #
 # Author:
 #   Wylie
@@ -128,10 +129,9 @@ module.exports = (robot) ->
   # what time is it
   robot.respond /\b(what time is it)\b/i, (res) ->
     sender = res.message.user.name.toLowerCase()
-    # res.send "Thanks for asking, @#{sender}! " + res.random whatTime
-    responseA = res.random praise
-    responseB = res.random whatTime
-    res.send "#{responseA}, @#{sender}! #{responseB}"
+    getPraise = res.random praise
+    getTime = res.random whatTime
+    res.send "#{getPraise}, @#{sender}! #{getTime}"
 
   # user
   robot.respond /user/i, (res) ->
