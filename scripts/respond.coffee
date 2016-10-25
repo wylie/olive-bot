@@ -142,12 +142,12 @@ module.exports = (robot) ->
     res.reply "Good morning, @#{sender}! :sunrise: " + res.random speak
 
   # ask Timmy what day it is
-  whatDayIsIt = new RegExp "(what day is it #{robot.name}|#{robot.name} what day is it)", "i"
-  robot.hear whatDayIsIt, (res) ->
-    sender = res.message.user.name.toLowerCase()
-    time = new Date
-    day = time.getDay()
-    robot.reply "Hey @#{sender}, the day is #{day}!"
+  # whatDayIsIt = new RegExp "(what day is it #{robot.name}|#{robot.name} what day is it)", "i"
+  # robot.hear whatDayIsIt, (res) ->
+  #   sender = res.message.user.name.toLowerCase()
+  #   time = new Date
+  #   day = time.getDay()
+  #   robot.reply "Hey @#{sender}, the day is #{day}!"
 
   # whatDayIsIt = new RegExp "(what day is it #{robot.name}|#{robot.name} what day is it)", "i"
   # robot.hear whatDayIsIt, (res) ->
