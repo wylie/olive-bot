@@ -129,8 +129,9 @@ module.exports = (robot) ->
   robot.respond /\b(what time is it)\b/i, (res) ->
     sender = res.message.user.name.toLowerCase()
     # res.send "Thanks for asking, @#{sender}! " + res.random whatTime
-    response = res.random praise + ", @#{sender}! " + res.random whatTime
-    res.send "#{response}"
+    responseA = res.random praise
+    responseB = res.random whatTime
+    res.send "#{responseA}, @#{sender}! #{responseB}"
 
   # user
   robot.respond /user/i, (res) ->
