@@ -148,22 +148,22 @@ module.exports = (robot) ->
     day = time.getDay()
     # Monday
     if day == 2
-      robot.reply "Hey @#{sender}, today is Monday! :+1: TIMMY!!"
+      robot.reply "Hey @#{sender}, today is Monday! :+1:" + res.random speak
     # Taco Tuesday
     if day == 2
-      robot.reply "Hey @#{sender}, it's Taco Tuesday! :taco: TIMMY!!"
+      robot.reply "Hey @#{sender}, it's Taco Tuesday! :taco:" + res.random speak
     # Wednesday
     if day == 2
-      robot.reply "Hey @#{sender}, today is Wednesday! :tangotucan: TIMMY!!"
+      robot.reply "Hey @#{sender}, today is Wednesday! :tangotucan:" + res.random speak
     # Thursday
     if day == 2
-      robot.reply "Hey @#{sender}, today is Thursday! :aw_yeah: TIMMY!!"
+      robot.reply "Hey @#{sender}, today is Thursday! :aw_yeah:" + res.random speak
     # Burger Friday
     if day == 5
-      robot.reply "Hey @#{sender}, it's Burger Friday! :hamburger: TIMMY!!"
+      robot.reply "Hey @#{sender}, it's Burger Friday! :hamburger:" + res.random speak
     # Saturday
     if day == 2
-      robot.reply "Hey @#{sender}, today is Saturday! :pump_girl: TIMMY!!"
+      robot.reply "Hey @#{sender}, today is Saturday! :pump_girl:" + res.random speak
     # Sunday
     if day == 2
-      robot.reply "Hey @#{sender}, today is Sunday! :tada: TIMMY!!"
+      robot.reply "Hey @#{sender}, today is Sunday! :tada:" + res.random speak
