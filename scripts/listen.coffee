@@ -27,7 +27,7 @@ module.exports = (robot) ->
   robot.listen(
     (message) -> # Match function
       # Occassionally respond to things that Steve says
-      message.user.name is "wyliefisher" and Math.random() > 0.8
+      message.user.name is "wyliefisher" and Math.random() > 0.9999
     (response) -> # Standard listener callback
       # Let Steve know how happy you are that he exists
       sender = res.message.user.name.toLowerCase()
