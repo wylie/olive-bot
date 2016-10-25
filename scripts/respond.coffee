@@ -153,9 +153,11 @@ module.exports = (robot) ->
   # robot.hear whatDayIsIt, (res) ->
   robot.respond /\b(what day is it)\b/i, (res) ->
     sender = res.message.user.name.toLowerCase()
-    time = new Date
-    day = time.getDay()
-    robot.reply "Hey @#{sender}, the day is #{day}!"
+    setInterval (->
+      time = new Date
+      day = time.getDay()
+      robot.reply "Hey @#{sender}, the day is #{day}!"
+    ), 1000
     # Monday
     # if day == 1
     #   robot.reply "Hey @#{sender}, today is Monday! :+1:" + res.random speak
