@@ -128,6 +128,11 @@ module.exports = (robot) ->
     sender = res.message.user.name.toLowerCase()
     res.send "Sorry, @#{sender}, what would you have my answer be?"
 
+  # TESTING
+  robot.respond /\b(kerpow)\b/i, (res) ->
+    sender = res.message.user.name.toLowerCase()
+    res.send "I can kick your ass, @#{sender}! :knife: TIMMY!!"
+
   # who's in this room
   robot.respond /(who)\s(.+)\?/i, (res) ->
     users = []
@@ -141,10 +146,6 @@ module.exports = (robot) ->
     sender = res.message.user.name.toLowerCase()
     res.reply "Good morning, @#{sender}! :sunrise: " + res.random speak
 
-  # TESTING
-  robot.respond /(what\sis\sbananas)/i, (res) ->
-    sender = res.message.user.name.toLowerCase()
-    res.send "I can kick your ass, @#{sender}! :knife: TIMMY!!"
 
 
   # ask Timmy what day it is
