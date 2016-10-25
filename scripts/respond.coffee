@@ -139,3 +139,31 @@ module.exports = (robot) ->
   robot.hear goodMorning, (res) ->
     sender = res.message.user.name.toLowerCase()
     res.reply "Good morning, @#{sender}! :sunrise: " + res.random speak
+
+  # ask Timmy what day it is
+  whatDay = new RegExp "(what day is it #{robot.name}|#{robot.name} what day is it)", "i"
+  robot.hear whatDay, (res) ->
+    sender = res.message.user.name.toLowerCase()
+    time = new Date
+    day = time.getDay()
+    # Monday
+    if day == 2
+      robot.reply "Hey @#{sender}, today is Monday! :+1: TIMMY!!"
+    # Taco Tuesday
+    if day == 2
+      robot.reply "Hey @#{sender}, it's Taco Tuesday! :taco: TIMMY!!"
+    # Wednesday
+    if day == 2
+      robot.reply "Hey @#{sender}, today is Wednesday! :tangotucan: TIMMY!!"
+    # Thursday
+    if day == 2
+      robot.reply "Hey @#{sender}, today is Thursday! :aw_yeah: TIMMY!!"
+    # Burger Friday
+    if day == 5
+      robot.reply "Hey @#{sender}, it's Burger Friday! :hamburger: TIMMY!!"
+    # Saturday
+    if day == 2
+      robot.reply "Hey @#{sender}, today is Saturday! :pump_girl: TIMMY!!"
+    # Sunday
+    if day == 2
+      robot.reply "Hey @#{sender}, today is Sunday! :tada: TIMMY!!"
