@@ -20,7 +20,8 @@
 #   hubot what can you do - Find out what hubot can do
 #   hubot who <query> - Hubot tells you users in the current channel
 #   hubot good morning - Give Hubot a morning greeting
-#   hubot thanks - Give thanks to  Hubot
+#   hubot thanks - Give thanks to Hubot
+#   hubot what day is it - Ask Hubot what day it is
 #
 # Author:
 #   Wylie
