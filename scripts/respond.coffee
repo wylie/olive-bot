@@ -142,9 +142,10 @@ module.exports = (robot) ->
     res.reply "Good morning, @#{sender}! :sunrise: " + res.random speak
 
   # TESTING
-  robot.respond /\b(what day is it)\b/i, (res) ->
+  robot.respond /(what\scan\syou\sdo)/i, (res) ->
     sender = res.message.user.name.toLowerCase()
-    robot.reply "Hey @#{sender}, the day is today!"
+    res.send "I can kick your ass, @#{sender}! :knife: TIMMY!!"
+
 
   # ask Timmy what day it is
   # whatDayIsIt = new RegExp "(what day is it #{robot.name}|#{robot.name} what day is it)", "i"
