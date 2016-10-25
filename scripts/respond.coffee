@@ -133,7 +133,7 @@ module.exports = (robot) ->
     sender = res.message.user.name.toLowerCase()
     time = new Date
     day = time.getDay()
-    res.send "I can kick your ass, @#{sender}! :knife: TIMMY!!"
+    res.send "Hey @#{sender}, today is #{day}! :+1:" + res.random speak
 
   # who's in this room
   robot.respond /(who)\s(.+)\?/i, (res) ->
