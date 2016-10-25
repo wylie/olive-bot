@@ -17,7 +17,7 @@ module.exports = (robot) ->
 
   robot.hear /\b(some\sthing)\b/i, (res) ->
     username = res.message.user.name
-    resa.send "You are `#{username}`!"
+    resa.reply "You are `#{username}`!"
 
   robot.listen(
     (message) -> # Match function
@@ -42,4 +42,4 @@ module.exports = (robot) ->
     robot.logger.error "DOES NOT COMPUTE: #{err}"
 
     if res?
-      res.reply "DOES NOT COMPUTE"
+      res.reply "DOES NOT COMPUTE: #{err}"
