@@ -131,6 +131,8 @@ module.exports = (robot) ->
   # TESTING
   robot.respond /\b(kerpow)\b/i, (res) ->
     sender = res.message.user.name.toLowerCase()
+    time = new Date
+    day = time.getDay()
     res.send "I can kick your ass, @#{sender}! :knife: TIMMY!!"
 
   # who's in this room
