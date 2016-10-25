@@ -50,6 +50,11 @@ speak = [
   "TIMMAY!!",
   "TIMMEH!!"
 ]
+praise = [
+  "Good question",
+  "Thanks for asking",
+  "Let me check my watch"
+]
 whatTime = [
   "It's time for you to shut the hell up!",
   "It's time for a beer!",
@@ -123,7 +128,8 @@ module.exports = (robot) ->
   # what time is it
   robot.respond /\b(what time is it)\b/i, (res) ->
     sender = res.message.user.name.toLowerCase()
-    res.send "Thanks for asking, @#{sender}! " + res.random whatTime
+    # res.send "Thanks for asking, @#{sender}! " + res.random whatTime
+    res.send res.random praise + ", @#{sender}! " + res.random whatTime
 
   # user
   robot.respond /user/i, (res) ->
