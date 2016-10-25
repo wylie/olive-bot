@@ -145,7 +145,7 @@ module.exports = (robot) ->
       res.send "Hey @#{sender}, today is Monday! :+1:" + res.random speak
     # Taco Tuesday
     if day == 2
-      res.send "Hey @#{sender}, it's Taco Tuesday! :taco:" + res.random speak
+      res.send "Hey @#{sender}, it's Taco Tuesday! :metal:" + res.random speak
     # Wednesday
     if day == 3
       res.send "Hey @#{sender}, today is Wednesday! :tangotucan:" + res.random speak
