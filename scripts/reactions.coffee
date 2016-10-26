@@ -864,7 +864,7 @@ module.exports = (robot) ->
         .post() (err, res, body) ->
           return
 
-  robot.hear /\bi(ts|t's)\snot\srobs\sfault\b/i, (res) ->
+  robot.hear /\bit('s|s)\snot\srobs\sfault\b/i, (res) ->
     smpl = [
       "nyancat_big"
       "bomb"
