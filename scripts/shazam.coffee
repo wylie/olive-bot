@@ -48,6 +48,7 @@ module.exports = (robot) ->
   # robot.hear /(.*)\salert\s(.*)/i, (res) ->
   robot.hear /alert/i, (res) ->
     id = res.message.id
+    idP = id.parseInt()
     # idPrev = res.message.id.parseInt() - 1
     # room = res.message.room
     # sender = res.message.user.name.toLowerCase()
@@ -55,4 +56,5 @@ module.exports = (robot) ->
     # postTo = res.match[2].trim()
     # robot.send room: "#{postTo}", "@#{sender} just posted this in ##{room}\n> #{message}"
     # robot.send "id: #{id}\nidPrev: #{idPrev}"
-    res.send "id: #{id}"
+    # res.send "id: #{id}"
+    res.send "idP: #{idP}"
