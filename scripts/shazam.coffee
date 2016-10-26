@@ -20,4 +20,4 @@ module.exports = (robot) ->
     sender = res.message.user.name.toLowerCase()
     message = res.message
     room = res.message.room
-    res.send "@#{sender} wrote this in #{room}\n> #{sender} "
+    res.send "@#{sender} wrote this in #{room}\n> #{message} "
