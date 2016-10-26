@@ -28,10 +28,18 @@ module.exports = (robot) ->
     if two == "shazbot"
       res.send "#{two}!\nHey, @#{sender}\n> #{message}\nThats what you posted in ##{room}"
 
-  # shazam
+  # post in abother room
   robot.hear /post\sin\s(.*)\s'(.*)'/i, (res) ->
     sender = res.message.user.name.toLowerCase()
     postTo = res.match[1].trim()
     message = res.match[2].trim()
     room = res.message.room
+    robot.send room: "#{postTo}", "@#{sender} just posted this in ##{room}\n> #{message}"
+
+  # post in abother room
+  robot.hear /(.*)\salert\s(.*)/i, (res) ->
+    room = res.message.room
+    sender = res.message.user.name.toLowerCase()
+    message = res.match[1].trim()
+    postTo = res.match[2].trim()
     robot.send room: "#{postTo}", "@#{sender} just posted this in ##{room}\n> #{message}"
