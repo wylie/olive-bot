@@ -20,4 +20,5 @@ module.exports = (robot) ->
     sender = res.message.user.name.toLowerCase()
     message = res.message
     room = res.message.room
-    res.send "@#{sender} wrote this in #{room}\n> #{message} "
+    email = res.message.email_address
+    res.send "@#{sender}, who has the email address #{email}, wrote this in ##{room}\n> #{message} "
