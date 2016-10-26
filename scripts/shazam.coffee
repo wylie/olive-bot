@@ -19,13 +19,13 @@ module.exports = (robot) ->
   robot.hear /(timmy) (.*) (.*)/i, (res) ->
     sender = res.message.user.name.toLowerCase()
     one = res.match[1].trim()
-    two = res.match[3].trim().toUpperCase()
+    two = res.match[3].trim()
     three = res.match[3].trim()
     message = res.message
     room = res.message.room
-    if two == "SHAZAM"
+    if two == "shazam"
       res.send "#{two}!\nHey, @#{sender}\nYou posted the following in ##{room}\n> #{message}"
-    if two == "SHAZBOT"
+    if two == "shazbot"
       res.send "#{two}!\nHey, @#{sender}\n> #{message}\nThats what you posted in ##{room}"
 
   # shazam
