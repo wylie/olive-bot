@@ -48,7 +48,7 @@ module.exports = (robot) ->
   # robot.hear /(.*)\salert\s(.*)/i, (res) ->
   robot.hear /alert/i, (res) ->
     id = res.message.id
-    idP = id.parseInt()
+    idP = parseInt(id)
     # idPrev = res.message.id.parseInt() - 1
     # room = res.message.room
     # sender = res.message.user.name.toLowerCase()
