@@ -37,8 +37,8 @@ module.exports = (robot) ->
   # get channel id
   robot.hear /blimp/i, (res) ->
     res.http("https://slack.com/api/channels.list?token=" + process.env.HUBOT_SLACK_TOKEN)
-    res.send "here"
-      # .get() (err, res, body) ->
+      .get() (err, res, body) ->
+        res.send "here"
       #   res.send "here"
 
         # json = JSON.parse(body)
