@@ -47,7 +47,7 @@ module.exports = (robot) ->
   # post previous post in abother room
   # robot.hear /(.*)\salert\s(.*)/i, (res) ->
   robot.hear /alert/i, (res) ->
-    id = res.message.id.parseInt()
+    id = res.message.id
     # idPrev = res.message.id.parseInt() - 1
     # room = res.message.room
     # sender = res.message.user.name.toLowerCase()
