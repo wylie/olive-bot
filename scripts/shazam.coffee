@@ -29,6 +29,7 @@ module.exports = (robot) ->
       .get(err, res, body) ->
         response = JSON.parse(body)
         if response.success == "true"
-        	res.send response
+        	res.send "It worked!"
+        	# res.send response
         else
-        	res.send "Unable to get cat facts right now."
+          res.send "It did not work!"
