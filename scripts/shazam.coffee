@@ -18,5 +18,5 @@ module.exports = (robot) ->
   # shazam
   robot.hear /\bshazam\b/i, (res) ->
     # sender = res.message.user.name.toLowerCase()
-    sender = res.message.id
+    sender = res.message
     res.send "SHAZAM, @#{sender}!"
