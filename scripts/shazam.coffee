@@ -25,7 +25,7 @@ module.exports = (robot) ->
     room = res.message.room
     if two == "shazam"
       res.send "#{two}!\nHey, @#{sender}\nYou posted the following in ##{room}\n> #{message}"
-    if two == "shazbot"
+    else
       res.send "#{two}!\nHey, @#{sender}\n> #{message}\nThats what you posted in ##{room}"
 
   # shazam
