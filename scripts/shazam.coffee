@@ -16,7 +16,7 @@
 module.exports = (robot) ->
 
   # shazam
-  robot.hear /\b(shazam) (.*)\b/i, (res) ->
+  robot.hear /(shazam) (.*)/i, (res) ->
     sender = res.message.user.name.toLowerCase()
     one = msg.match[1].trim()
     two = msg.match[2].trim()
