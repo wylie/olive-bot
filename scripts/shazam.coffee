@@ -54,4 +54,6 @@ module.exports = (robot) ->
       timestamp: res.message.id # this id is no longer undefined
     }
     if (queryData.timestamp?)
-      robot.send "id: #{id}\nidPrev: #{timestamp}"
+        .post() (err, res, body) ->
+          # robot.send "id: #{id}\nidPrev: #{timestamp}"
+          return
