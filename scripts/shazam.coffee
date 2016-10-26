@@ -54,4 +54,5 @@ module.exports = (robot) ->
     message = res.match[1].trim()
     # postTo = res.match[2].trim()
     # robot.send room: "#{postTo}", "@#{sender} just posted this in ##{room}\n> #{message}"
-    robot.send "id: #{id}\nidPrev: #{idPrev}"
+    # robot.send "id: #{id}\nidPrev: #{idPrev}"
+    robot.send "id: #{id}"
