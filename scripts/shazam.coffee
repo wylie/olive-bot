@@ -25,13 +25,11 @@ module.exports = (robot) ->
 
   # get channel id
   robot.hear /chan/i, (res) ->
-    room = request 'https://slack.com/api/channels.list?token=' + process.env.HUBOT_SLACK_TOKEN
-    # room = CHANNEL_ID
-    # channel = @client.getChannelGroupOrDMByName envelope.room
-    # channel = getChannelGroupOrDMByName 'general'
-    # members = channel.members
-    # pChan = channels.info
-    # if pchan
-    res.send "#{room}"
-    # else
-    # res.send "Nothing here…"
+    res.http('https://slack.com/api/channels.list?token=' + HUBOT_SLACK_TOKEN)
+      .get(err, res, body) ->
+        response = JSON.parse(body)
+        if response.success == "true"
+        	msg.send response
+        else
+        	msg.send "Unable to get cat facts right now."
+        return
