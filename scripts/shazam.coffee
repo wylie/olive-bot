@@ -23,3 +23,12 @@ module.exports = (robot) ->
     message = res.message
     room = res.message.room
     res.send "@#{sender}\n> #{one}, #{two}`\n wrote in room: ##{room}\n> #{message} "
+
+  # shazam
+  robot.hear /(timmy) shazbot (.*)/i, (res) ->
+    sender = res.message.user.name.toLowerCase()
+    one = res.match[1].trim()
+    two = res.match[2].trim()
+    message = res.message
+    room = res.message.room
+    res.emote "@#{sender}\n> #{one}, #{two}`\n wrote in room: ##{room}\n> #{message} "
