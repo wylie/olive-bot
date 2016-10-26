@@ -16,19 +16,23 @@
 module.exports = (robot) ->
 
   # shazam
-  robot.hear /(timmy) shazam (.*)/i, (res) ->
+  robot.hear /(timmy) (.*) (.*)/i, (res) ->
     sender = res.message.user.name.toLowerCase()
     one = res.match[1].trim()
-    two = res.match[2].trim()
+    two = res.match[3].trim().toUpperCase()
+    three = res.match[3].trim()
     message = res.message
     room = res.message.room
-    res.send "@#{sender}\n> #{one}, #{two}`\n wrote in room: ##{room}\n> #{message} "
+    if two = 'shazam'
+      res.send "#{two}!\nHey, @#{sender}\nYou posted the following in ##{room}\n> #{message}"
+    if two = 'shazbot'
+      res.send "#{two}!\nHey, @#{sender}\n> #{message}\nThats what you posted in ##{room}"
 
   # shazam
-  robot.hear /(timmy) shazbot (.*)/i, (res) ->
-    sender = res.message.user.name.toLowerCase()
-    one = res.match[1].trim()
-    two = res.match[2].trim()
-    message = res.message
-    room = res.message.room
-    res.emote "@#{sender}\n> #{one}, #{two}`\n wrote in room: ##{room}\n> #{message} "
+  # robot.hear /(timmy) shazbot (.*)/i, (res) ->
+  #   sender = res.message.user.name.toLowerCase()
+  #   one = res.match[1].trim()
+  #   two = res.match[3].trim()
+  #   message = res.message
+  #   room = res.message.room
+  #   res.emote "@#{sender}\n> #{one}, #{two}\n wrote in room: ##{room}\n> #{message} "
