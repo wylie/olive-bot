@@ -35,4 +35,5 @@ module.exports = (robot) ->
     two = res.match[2].trim()
     message = res.message
     room = res.message.room
-    res.send room: 'props', "@#{sender} just posted this in ##{room}\n> #{two}"
+    # robot.send room: 'general', "Hooray, it's Burger Friday! :hamburger: TIMMY!!"
+    robot.send room: 'props', "@#{sender} just posted this in ##{room}\n> #{two}"
