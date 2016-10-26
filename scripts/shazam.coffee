@@ -29,7 +29,7 @@ module.exports = (robot) ->
       res.send "#{two}!\nHey, @#{sender}\n> #{message}\nThats what you posted in ##{room}"
 
   # shazam
-  robot.hear /post\sin\s(.*)\s('.*')/i, (res) ->
+  robot.hear /post\sin\s(.*)\s'(.*)'/i, (res) ->
     sender = res.message.user.name.toLowerCase()
     postTo = res.match[1].trim()
     message = res.match[2].trim()
