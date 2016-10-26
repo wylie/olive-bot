@@ -27,18 +27,18 @@ module.exports = (robot) ->
   robot.hear /chan/i, (res) ->
     res.http("https://slack.com/api/channels.list?token=" + process.env.HUBOT_SLACK_TOKEN)
       .get() (error, response, body) ->
-        response = JSON.parse(body)
-      	res.send response
+        bodyJson = JSON.parse(body)
+      	res.send bodyJson
 
-  # # get channel id
-  # robot.hear /blimp/i, (res) ->
-  #   res.http("https://slack.com/api/channels.list?token=" + process.env.HUBOT_SLACK_TOKEN)
-  #     .get() (error, response, body) ->
-  #       # res.send "here"
-  #     #   res.send "here"
-  #       json = JSON.parse(body)
-  #       switch res.statusCode
-  #         when 200
-  #           res.send json
-  #         else
-  #           res.send "..."
+  # get channel id
+  robot.hear /blimp/i, (res) ->
+    res.http("https://slack.com/api/channels.list?token=" + process.env.HUBOT_SLACK_TOKEN)
+      .get() (error, response, body) ->
+        # res.send "here"
+      #   res.send "here"
+        json = JSON.parse(body)
+        switch res.statusCode
+          when 200
+            res.send json
+          else
+            res.send "..."
