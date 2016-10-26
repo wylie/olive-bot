@@ -32,4 +32,3 @@ module.exports = (robot) ->
         	res.send response
         else
         	res.send "Unable to get cat facts right now."
-        return
