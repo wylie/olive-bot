@@ -29,11 +29,9 @@ module.exports = (robot) ->
       res.send "#{two}!\nHey, @#{sender}\n> #{message}\nThats what you posted in ##{room}"
 
   # shazam
-  robot.hear /post\sin\s(.*)\s(.*)/i, (res) ->
+  robot.hear /post\sin\s(.*)\s('.*')/i, (res) ->
     sender = res.message.user.name.toLowerCase()
-    one = res.match[1].trim()
-    two = res.match[2].trim()
-    message = res.message
+    postTo = res.match[1].trim()
+    message = res.match[2].trim()
     room = res.message.room
-    # robot.send room: 'general', "Hooray, it's Burger Friday! :hamburger: TIMMY!!"
-    robot.send room: 'props', "@#{sender} just posted this in ##{room}\n> #{two}"
+    robot.send room: '#{postTo}', "@#{sender} just posted this in ##{room}\n> #{message}"
