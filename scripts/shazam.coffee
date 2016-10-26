@@ -35,4 +35,4 @@ module.exports = (robot) ->
     two = res.match[2].trim()
     message = res.message
     room = res.message.room
-    res.send room: '#{one}', "@#{sender} just posted this in ##{room}\n> #{two}"
+    res.send room: 'props', "@#{sender} just posted this in ##{room}\n> #{two}"
