@@ -19,7 +19,7 @@ module.exports = (robot) ->
   robot.hear /(timmy) (.*) (.*)/i, (res) ->
     sender = res.message.user.name.toLowerCase()
     one = res.match[1].trim()
-    two = res.match[3].trim()
+    two = res.match[2].trim()
     three = res.match[3].trim()
     message = res.message
     room = res.message.room
