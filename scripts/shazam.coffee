@@ -18,8 +18,8 @@ module.exports = (robot) ->
   # shazam
   robot.hear /(shazam) (.*)/i, (res) ->
     sender = res.message.user.name.toLowerCase()
-    one = msg.match[1].trim()
-    two = msg.match[2].trim()
+    one = res.match[1].trim()
+    two = res.match[2].trim()
     message = res.message
     room = res.message.room
     res.send "@#{sender}\n> #{one}, #{two}`\n wrote in room: ##{room}\n> #{message} "
