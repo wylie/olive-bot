@@ -21,4 +21,5 @@ module.exports = (robot) ->
     message = res.message
     room = res.message.room
     email = res.message.text
-    res.send "@#{sender}, who has the email address `#{email}`, wrote this in ##{room}\n> #{message} "
+    id = res.user.id
+    res.send "@#{sender}, who has the email address `#{id}`, wrote this in ##{room}\n> #{message} "
