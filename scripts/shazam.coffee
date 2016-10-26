@@ -25,7 +25,7 @@ module.exports = (robot) ->
 
   # get channel id
   robot.hear /chan/i, (res) ->
-    room = res.message.room.id
+    room = CHANNEL_ID
     # channel = @client.getChannelGroupOrDMByName envelope.room
     # channel = getChannelGroupOrDMByName 'general'
     # members = channel.members
