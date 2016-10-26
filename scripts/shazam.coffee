@@ -25,7 +25,8 @@ module.exports = (robot) ->
 
   # get channel id
   robot.hear /chan/i, (res) ->
-    room = CHANNEL_ID
+    room = request 'https://slack.com/api/channels.list?token=' + process.env.HUBOT_SLACK_TOKEN
+    # room = CHANNEL_ID
     # channel = @client.getChannelGroupOrDMByName envelope.room
     # channel = getChannelGroupOrDMByName 'general'
     # members = channel.members
