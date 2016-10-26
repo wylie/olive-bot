@@ -25,14 +25,11 @@ module.exports = (robot) ->
 
   # get channel id
   robot.hear /chan/i, (res) ->
-    url = "https://slack.com/api/channels.list?token=" + process.env.HUBOT_SLACK_TOKEN
-    # res.send url
-    res.http(url)
-      .header('Accept', 'application/json')
+    res.http("https://slack.com/api/channels.list?token=" + process.env.HUBOT_SLACK_TOKEN)
       .get() (err, res, body) ->
         response = JSON.parse(body)
-        if response.success == "true"
-        	res.send "It worked!"
-        	# res.send response
-        else
-          res.send "It did not work!"
+        res.send response
+        # if response.success == "true"
+        # 	res.send "It worked!"
+        # else
+        #   res.send "It did not work!"
