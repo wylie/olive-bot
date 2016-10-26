@@ -47,12 +47,11 @@ module.exports = (robot) ->
   # post previous post in abother room
   # robot.hear /(.*)\salert\s(.*)/i, (res) ->
   robot.hear /alert/i, (res) ->
-    id = res.message.id
-    idPrev = res.message.id - 1
-    # room = res.message.room
-    # sender = res.message.user.name.toLowerCase()
-    # message = res.match[1].trim()
-    # postTo = res.match[2].trim()
-    # robot.send room: "#{postTo}", "@#{sender} just posted this in ##{room}\n> #{message}"
-    robot.send "id: #{id}\nidPrev: #{idPrev}"
-    # res.send "id: #{id}"
+    queryData =  {
+      token: process.env.HUBOT_SLACK_TOKEN
+      name: "cat"
+      channel: res.message.rawMessage.channel # required with timestamp, uses rawMessage to find this
+      timestamp: res.message.id # this id is no longer undefined
+    }
+    if (queryData.timestamp?)
+      robot.send "id: #{id}\nidPrev: #{timestamp}"
