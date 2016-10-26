@@ -25,11 +25,12 @@ module.exports = (robot) ->
 
   # get channel id
   robot.hear /chan/i, (res) ->
-    channel = @client.getChannelGroupOrDMByName envelope.room
+    # channel = @client.getChannelGroupOrDMByName envelope.room
     # channel = getChannelGroupOrDMByName 'general'
-    members = channel.members
+    # members = channel.members
     # pChan = channels.info
     # if pchan
-    res.send "#{channel}"
+    # res.send "#{channel}"
+    res.send "COMPLETE!"
     # else
     # res.send "Nothing here…"
