@@ -26,4 +26,7 @@ module.exports = (robot) ->
   # get channel id
   robot.hear /chan/i, (res) ->
     pChan = channels.info
-    res.send "#{pChan}"
+    if pchan
+      res.send "#{pChan}"
+    else
+      res.send "Nothing here…"
