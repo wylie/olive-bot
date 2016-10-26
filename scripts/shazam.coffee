@@ -24,6 +24,6 @@ module.exports = (robot) ->
     robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in " + <#C024BE7LR|testing>
 
   # get channel id
-  robot.hear /(chan)/i, (res) ->
-    pChan = groups.list
-    res.send "#{pChan}"
+  # robot.hear /chan/i, (res) ->
+  #   pChan = groups.list
+  #   res.send "#{pChan}"
