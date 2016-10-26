@@ -26,4 +26,4 @@ module.exports = (robot) ->
   # get channel id
   robot.hear /(chan)/i, (res) ->
     pChan = groups.list
-    robot.send "#{pChan}"
+    res.send "#{pChan}"
