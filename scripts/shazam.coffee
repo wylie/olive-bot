@@ -23,9 +23,9 @@ module.exports = (robot) ->
     three = res.match[3].trim()
     message = res.message
     room = res.message.room
-    if two == 'shazam'
+    if two == "shazam"
       res.send "#{two}!\nHey, @#{sender}\nYou posted the following in ##{room}\n> #{message}"
-    if two == 'shazbot'
+    if two == "shazbot"
       res.send "#{two}!\nHey, @#{sender}\n> #{message}\nThats what you posted in ##{room}"
 
   # shazam
