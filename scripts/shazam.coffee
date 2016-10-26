@@ -29,49 +29,17 @@ module.exports = (robot) ->
       res.send "#{two}!\nHey, @#{sender}\n> #{message}\nThats what you posted in ##{room}"
 
   # post in abother room
-  robot.hear /post\sin\s(.*)\s'(.*)'/i, (res) ->
-    sender = res.message.user.name.toLowerCase()
-    postTo = res.match[1].trim()
-    message = res.match[2].trim()
-    room = res.message.room
-    robot.send room: "#{postTo}", "@#{sender} just posted this in ##{room}\n> #{message}"
-
-  # post in abother room
-  # robot.hear /(.*)\salert\s(.*)/i, (res) ->
-  #   room = res.message.room
+  # robot.hear /post\sin\s(.*)\s'(.*)'/i, (res) ->
   #   sender = res.message.user.name.toLowerCase()
-  #   message = res.match[1].trim()
-  #   postTo = res.match[2].trim()
+  #   postTo = res.match[1].trim()
+  #   message = res.match[2].trim()
+  #   room = res.message.room
   #   robot.send room: "#{postTo}", "@#{sender} just posted this in ##{room}\n> #{message}"
 
-  # post previous post in abother room
-  # robot.hear /(.*)\salert\s(.*)/i, (res) ->
-  # robot.hear /alert/i, (res) ->
-  #   id = res.message.id
-    # idP = parseInt(id)
-    # idPrev = res.message.id - 1
-    # room = res.message.room
-    # sender = res.message.user.name.toLowerCase()
-    # message = res.match[1].trim()
-    # postTo = res.match[2].trim()
-    # robot.send room: "#{postTo}", "@#{sender} just posted this in ##{room}\n> #{message}"
-    # robot.send "id: #{id}\nidPrev: #{idPrev}"
-    # res.send "id: #{id}"
-    # res.send "idP: #{idP}"
-
-  robot.hear /alert/i, (res) ->
-    queryData =  {
-      token: process.env.HUBOT_SLACK_TOKEN
-      name: "beer"
-      channel: res.message.rawMessage.channel # required with timestamp, uses rawMessage to find this
-      timestamp: res.message.id # this id is no longer undefined
-    }
-    if (queryData.timestamp?)
-      res.http("https://slack.com/api/reactions.add")
-        .query(queryData)
-        .post() (err, res, body) ->
-          console.log(queryData)
-          console.log(err)
-          console.log(res)
-          console.log(body)
-          return
+  # post in abother room
+  robot.hear /(.*)\salert\s(.*)/i, (res) ->
+    room = res.message.room
+    sender = res.message.user.name.toLowerCase()
+    message = res.match[1].trim()
+    postTo = res.match[2].trim()
+    robot.send room: "#{postTo}", "@#{sender} just posted this in ##{room}\n> #{message}"
