@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot post in '<message>' -- Hubot will post your message in another room
+#   <message> alert <channel> -- Hubot will post your message in another room
 #
 # Author:
 #   Wylie
@@ -42,4 +42,4 @@ module.exports = (robot) ->
     sender = res.message.user.name.toLowerCase()
     message = res.match[1].trim()
     postTo = res.match[2].trim()
-    robot.send room: "#{postTo}", "@#{sender} just posted this in ##{room}\n> #{message}"
+    robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in ##{room}"
