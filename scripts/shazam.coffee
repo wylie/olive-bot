@@ -21,9 +21,9 @@ module.exports = (robot) ->
     sender = res.message.user.name.toLowerCase()
     message = res.match[1].trim()
     postTo = res.match[2].trim()
-    robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in " + <#C024BE7LR|testing>
+    robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in ##{room}"
 
   # get channel id
-  # robot.hear /chan/i, (res) ->
-  #   pChan = groups.list
-  #   res.send "#{pChan}"
+  robot.hear /chan/i, (res) ->
+    pChan = groups.list
+    res.send "#{pChan}"
