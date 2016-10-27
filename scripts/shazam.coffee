@@ -32,6 +32,9 @@ module.exports = (robot) ->
 
   # post in multiple other rooms
   robot.hear /(.*)\ssmurf\s(.*)/i, (res) ->
+    postFrom = res.message.room # get the current room
+    sender = res.message.user.name.toLowerCase() # get the posters username
+    message = res.match[1].trim() # get the message
     postTo = res.match[2].trim() # get the room to post to
     channelList = postTo.split(/\s/)
     channelLength = channelList.length
