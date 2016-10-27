@@ -32,20 +32,16 @@ module.exports = (robot) ->
 
   # post in multiple other rooms
   robot.hear /(.*)\ssmurf\s(.*)/i, (res) ->
-    postFrom = res.message.room # get the current room
-    sender = res.message.user.name.toLowerCase() # get the posters username
-    message = res.match[1].trim() # get the message
     postTo = res.match[2].trim() # get the room to post to
-    reg = /' '/
-    channelList = postTo.split(reg)
+    channelList = postTo[1].split(/\s/)
     i = 0
     j = 0
     while i < channelList.length
       console.log channelList[i]
-      while j < json.channels.length # loop through each channel
-        if json.channels[j].name == postFrom # if the channel matches grab the channel ID so we can make a link
-          robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in <##{json.channels[j].id}|#{json.channels[i].name}>" # post to the desired channel
-        j++
+      # while j < json.channels.length # loop through each channel
+      #   if json.channels[j].name == postFrom # if the channel matches grab the channel ID so we can make a link
+      #     robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in <##{json.channels[j].id}|#{json.channels[i].name}>" # post to the desired channel
+      #   j++
       i++
 
     # postToN == postTo.split(' ');
