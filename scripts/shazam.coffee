@@ -37,6 +37,7 @@ module.exports = (robot) ->
     message = res.match[1].trim() # get the message
     postTo = res.match[2].trim() # get the room to post to
     channelList = postTo.split(/\s/) # split apart the post to arr
+    i = 0
     j = 0
     res.http("https://slack.com/api/channels.list?token=" + process.env.HUBOT_SLACK_TOKEN) # get the JSON
       .get() (error, response, body) ->
@@ -44,9 +45,8 @@ module.exports = (robot) ->
         while j < json.channels.length # loop through each channel
           if json.channels[j].name == postFrom # if the channel matches grab the channel ID so we can make a link
             blammo = "<##{json.channels[j].id}|#{json.channels[j].name}>" # post to the desired channel
-            return "#{blammo}"
+            return blammo
           j++
-    i = 0
-    while i < channelList.length
-      robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in #{blammo}" # post to the desired channel
-      i++
+        while i < channelList.length
+          robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in #{blammo}" # post to the desired channel
+          i++
