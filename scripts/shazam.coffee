@@ -34,11 +34,12 @@ module.exports = (robot) ->
   robot.hear /(.*)\ssmurf\s(.*)/i, (res) ->
     postTo = res.match[2].trim() # get the room to post to
     channelList = postTo[1].split(/\s/)
-    i = 0
+    console.log channelList
+    # i = 0
     # j = 0
-    while i < channelList.length
-      console.log channelList[i]
-      i++
+    # while i < channelList.length
+    #   console.log channelList[i]
+    #   i++
       # while j < json.channels.length # loop through each channel
       #   if json.channels[j].name == postFrom # if the channel matches grab the channel ID so we can make a link
       #     robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in <##{json.channels[j].id}|#{json.channels[i].name}>" # post to the desired channel
