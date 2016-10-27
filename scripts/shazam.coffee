@@ -43,6 +43,7 @@ module.exports = (robot) ->
       i++
 
   robot.hear /chan/i, (res) ->
-    chanid = res.message.room
+    chanid1 = res.message.channel_id
+    chanid2 = res.message.room.channel_id
     # res.send "your channel ID is: #{chanid}"
-    res.send "your channel ID is: #{chanid}"
+    res.send "your channel ID is: #{chanid1}. oh, and #{chanid2}"
