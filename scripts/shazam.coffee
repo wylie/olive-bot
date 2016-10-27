@@ -49,11 +49,26 @@ module.exports = (robot) ->
     roomId = robot.brain.get('room_id')
     while i < channelList.length
       robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in <##{roomId}|#{postFrom}>" # post to the desired channel
-      robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in ##{postFrom}" # post to the desired channel
+      # robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in ##{postFrom}" # post to the desired channel
       i++
 
   robot.hear /chan/i, (res) ->
+    postFrom = res.message.room # get the current room
+    sender = res.message.user.name.toLowerCase() # get the posters username
+    message = res.match[1].trim() # get the message
+    postTo = res.match[2].trim() # get the room to post to
+    channelList = postTo.split(/\s/) # split apart the post to arr
+    j = 0
+    res.http("https://slack.com/api/channels.list?token=" + process.env.HUBOT_SLACK_TOKEN) # get the JSON
+    .get() (error, response, body) ->
+      json = JSON.parse(body) # parse the JSON
+      while j < json.channels.length # loop through each channel
+        if json.channels[j].name == postFrom # if the channel matches grab the channel ID so we can make a link
+          robot.brain.set "room_id", "#{json.channels[j].id}"
+          j++
+    i = 0
     roomId = robot.brain.get('room_id')
-    chan = res.message.channels.name
-    # res.send "your channel ID is: #{chanid}"
-    res.send "Channel ID: #{roomId}"
+    while i < channelList.length
+      robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in <##{roomId}|#{postFrom}>" # post to the desired channel
+      # robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in ##{postFrom}" # post to the desired channel
+      i++
