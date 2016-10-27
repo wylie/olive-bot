@@ -29,7 +29,7 @@ module.exports = (robot) ->
       .get() (error, response, body) ->
         # res.send response
         # res.send body
-        res.send body
+        res.send JSON.parse(body)
         # response = JSON.parse(body)
       	# res.send "It worked!"
 
