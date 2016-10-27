@@ -28,7 +28,7 @@ module.exports = (robot) ->
         while i < json.channels.length
           if json.channels[i].name == postTo
           # res.send json.channels[i].name
-            robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in ##{json.channels[i].name}"
+            robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in <##{json.channels[i].id}|#{json.channels[i].name}>"
           i++
 
   # get channel id
