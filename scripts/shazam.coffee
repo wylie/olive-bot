@@ -33,8 +33,8 @@ module.exports = (robot) ->
   # post in multiple other rooms
   robot.hear /(.*)\ssmurf\s(.*)/i, (res) ->
     postTo = res.match[2].trim() # get the room to post to
-    channelList = postTo[1].split(/\s/)
-    res.send "#{postTo}"
+    channelList = postTo.split(/\s/)
+    res.send "#{channelList}"
     # i = 0
     # j = 0
     # while i < channelList.length
