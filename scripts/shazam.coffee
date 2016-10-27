@@ -47,5 +47,5 @@ module.exports = (robot) ->
             robot.send room: "#{channelList[i]}", "> #{message}"
           #   if json.channels[j].name == postFrom # if the channel matches grab the channel ID so we can make a link
           #     robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in <##{json.channels[j].id}|#{json.channels[j].name}>" # post to the desired channel
+            i++
             j++
-          i++
