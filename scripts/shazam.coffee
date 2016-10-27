@@ -38,14 +38,8 @@ module.exports = (robot) ->
     i = 0
     j = 0
     while i < channelList.length
-      # res.send channelList[i]
-      i++
       while j < json.channels.length # loop through each channel
         if json.channels[j].name == postFrom # if the channel matches grab the channel ID so we can make a link
           robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in <##{json.channels[j].id}|#{json.channels[i].name}>" # post to the desired channel
         j++
-
-    # postToN == postTo.split(' ');
-    # while i < postToN.length # loop through each channel
-    #   res.send "#{postTo[i]}"
-    #   i++
+      i++
