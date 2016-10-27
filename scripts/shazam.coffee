@@ -29,7 +29,7 @@ module.exports = (robot) ->
       .get() (error, response, body) ->
         # res.send response
         # res.send body
-        res.send body.channels[0]
+        res.send body
         # response = JSON.parse(body)
       	# res.send "It worked!"
 
