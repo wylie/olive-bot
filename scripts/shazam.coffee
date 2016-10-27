@@ -21,7 +21,15 @@ module.exports = (robot) ->
     sender = res.message.user.name.toLowerCase()
     message = res.match[1].trim()
     postTo = res.match[2].trim()
-    robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in ##{room}"
+    res.http("https://slack.com/api/channels.list?token=" + process.env.HUBOT_SLACK_TOKEN)
+      .get() (error, response, body) ->
+        json = JSON.parse(body)
+        i = 0
+        while i < json.channels.length
+          if json.channels[i].name == postTo
+          # res.send json.channels[i].name
+            robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in ##{json.channels[i].name}"
+          i++
 
   # get channel id
   robot.hear /chan/i, (res) ->
