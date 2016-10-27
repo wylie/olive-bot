@@ -41,3 +41,6 @@ module.exports = (robot) ->
     while i < channelList.length
       robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in ##{postFrom}" # post to the desired channel
       i++
+
+  robot.hear /chan/i, (res) ->
+    res.send msg.channel_id
