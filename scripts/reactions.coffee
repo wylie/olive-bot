@@ -43,6 +43,20 @@ module.exports = (robot) ->
         .post() (err, res, body) ->
           return
 
+  # nsfw
+  robot.hear /\bnsfw\b/i, (res) ->
+    queryData =  {
+      token: process.env.HUBOT_SLACK_TOKEN
+      name: "nsfw"
+      channel: res.message.rawMessage.channel # required with timestamp, uses rawMessage to find this
+      timestamp: res.message.id # this id is no longer undefined
+    }
+    if (queryData.timestamp?)
+      res.http("https://slack.com/api/reactions.add")
+        .query(queryData)
+        .post() (err, res, body) ->
+          return
+
   # aw_yeah
   robot.hear /\b(aw\syeah)\b/i, (res) ->
     queryData =  {
