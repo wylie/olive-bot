@@ -43,5 +43,5 @@ module.exports = (robot) ->
         json = JSON.parse(body) # parse the JSON
         while i < channelList.length
           robot.send room: "#{channelList[i]}", "> #{message}"
-          robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in #{postTo}" # post to the desired channel
+          robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in ##{postFrom}" # post to the desired channel
           i++
