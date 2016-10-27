@@ -17,7 +17,7 @@ module.exports = (robot) ->
 
   # post in abother room
   robot.hear /(.*)\salert\s(.*)/i, (res) ->
-    room = res.message.room
+    postFrom = res.message.room
     sender = res.message.user.name.toLowerCase()
     message = res.match[1].trim()
     postTo = res.match[2].trim()
@@ -26,7 +26,7 @@ module.exports = (robot) ->
         json = JSON.parse(body)
         i = 0
         while i < json.channels.length
-          if json.channels[i].name == postTo
+          if json.channels[i].name == postFrom
           # res.send json.channels[i].name
             robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in <##{json.channels[i].id}|#{json.channels[i].name}>"
           i++
