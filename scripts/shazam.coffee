@@ -39,5 +39,5 @@ module.exports = (robot) ->
     channelList = postTo.split(/\s/) # split apart the post to arr
     i = 0
     while i < channelList.length
-      robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in #{blammo}" # post to the desired channel
+      robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in #{postFrom}" # post to the desired channel
       i++
