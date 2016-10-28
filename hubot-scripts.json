@@ -9,6 +9,7 @@
   "listen",
   "logging",
   "maps",
+  "mbta_cr",
   "pugme",
   "reactions",
   "respond",
