@@ -68,7 +68,7 @@ module.exports = (robot) ->
           j++
     i = 0
     roomId = robot.brain.get('room_id')
-    robot.send "#{roomId}"
+    res.send "#{roomId}"
     # while i < channelList.length
     #   robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in <##{roomId}|#{postFrom}>" # post to the desired channel
     #   # robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in ##{postFrom}" # post to the desired channel
