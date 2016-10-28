@@ -16,7 +16,8 @@
 module.exports = (robot) ->
 
   # days of the week
-  setInterval (->
+  # setInterval (->
+  robot.hear /\bmbta\b/i, (res) ->
     res.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
       .get() (error, response, body) ->
         json = JSON.parse(body) # parse the JSON
@@ -25,5 +26,5 @@ module.exports = (robot) ->
         #   if json.channels[i].name == postFrom # if the channel matches grab the channel ID so we can make a link
         #     robot.send room: "#{postTo}", "> #{message}\n@#{sender} just posted this in <##{json.channels[i].id}|#{json.channels[i].name}>" # post to the desired channel
         #   i++
-    return
-  ), 6000
+  #   return
+  # ), 6000
