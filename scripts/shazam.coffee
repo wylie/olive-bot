@@ -66,8 +66,8 @@ module.exports = (robot) ->
         if json.channels[j].name == postFrom # if the channel matches grab the channel ID so we can make a link
           robot.brain.set "room_id", "#{json.channels[j].id}"
           roomId = robot.brain.get('room_id')
-          res.send "#{roomId}"
-          j++
+          robot.send "#{roomId}"
+        j++
     # i = 0
     # while i < channelList.length
     #   robot.send room: "#{channelList[i]}", "> #{message}\n@#{sender} just posted this in <##{roomId}|#{postFrom}>" # post to the desired channel
