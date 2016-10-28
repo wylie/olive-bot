@@ -108,7 +108,7 @@ module.exports = (robot) ->
       while j < json.channels.length # loop through each channel
         if json.channels[j].name == postFrom # if the channel matches grab the channel ID so we can make a link
           robot.brain.set "room_id", "#{json.channels[j].id}"
-          j++
+        j++
     i = 0
     roomId = robot.brain.get('room_id')
     while i < channelList.length
