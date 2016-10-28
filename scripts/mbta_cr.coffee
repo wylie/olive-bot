@@ -23,7 +23,7 @@ module.exports = (robot) ->
         json = JSON.parse(body) # parse the JSON
         # robot.send room: "testing", "#{json.Messages[1].Stop}"
         while i < json.Messages.length # loop through each channel
-          if json.Messages[i].Stop == "Ipswich" # if the channel matches grab the channel ID so we can make a link
+          if "#{json.Messages[i].Stop}" == "Ipswich" # if the channel matches grab the channel ID so we can make a link
             robot.send room: "testing", "> The Stop is #{json.Messages[i].Stop}"
           i++
   #   return
