@@ -39,6 +39,11 @@ module.exports = (robot) ->
           else
             msg.send "..."
 
+  # wtf
+  robot.hear /\b(wtf)\b/i, (res) ->
+    sender = res.message.user.name.toLowerCase()
+    res.send "WTF is right, @#{sender}. What. The. Fuck. TIMMY!!"
+
   # get/buy(ing) beer(s)
   robot.hear /(((\bget\b)|(\bbuy\b|\bbuying\b))\s(\bbeer\b|\bbeers\b))/i, (res) ->
     sender = res.message.user.name.toLowerCase()
