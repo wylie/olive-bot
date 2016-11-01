@@ -30,7 +30,8 @@ module.exports = (robot) ->
       .get() (error, response, body) ->
         json = JSON.parse(body) # parse the JSON
         while i < json.Messages.length.toLowerCase() # loop through each channel
-          robot.send room: 'mbta', "> The Stop is #{json.Messages[i].Stop} and it's scheduled for #{json.Messages[i].Scheduled}"
+          robot.send room: 'mbta', "#{i}"
+          # robot.send room: 'mbta', "> The Stop is #{json.Messages[i].Stop} and it's scheduled for #{json.Messages[i].Scheduled}"
     return
   ), 6000
 
