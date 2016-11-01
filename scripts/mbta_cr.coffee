@@ -51,8 +51,11 @@ module.exports = (robot) ->
     msg.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
       .get() (err, res, body) ->
         json = JSON.parse(body)
-        while i < json.Messages.length.toLowerCase() # loop through each channel
-          msg.send json.Messages[i].Stop
+        if json.Messages[1].Stop == myStop # if the channel matches grab the channel ID so we can make a link
+          msg.send myStop
+        #
+        # while i < json.Messages.length.toLowerCase() # loop through each channel
+        #   msg.send json.Messages[i].Stop
 
   robot.hear /\bmbtass\s(.*)\b/i, (res) ->
     res.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
