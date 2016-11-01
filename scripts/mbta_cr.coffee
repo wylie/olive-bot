@@ -48,7 +48,6 @@ module.exports = (robot) ->
     , 1000
 
 
-  # setInterval (->
   robot.hear /\bmbta\s(.*)\b/i, (res) ->
     myStop = res.match[1].trim() # get the stop
     if myStop
@@ -66,5 +65,3 @@ module.exports = (robot) ->
             i++
     else
       res.send "No stop supplied"
-  #   return
-  # ), 6000
