@@ -47,6 +47,11 @@ module.exports = (robot) ->
       robot.send room: 'mbta', "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
     , 1000
 
+  robot.respond /pug it/i, (msg) ->
+    msg.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
+      .get() (err, res, body) ->
+        msg.send JSON.parse(body).Messages[1].Stop
+
   robot.hear /\bmbta\s(.*)\b/i, (res) ->
     res.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
       .get() (err, res, body) ->
@@ -55,7 +60,7 @@ module.exports = (robot) ->
           when 200
             myStop = res.match[1]
             yourStop = json.Messages[1].Stop
-            res.send myStop + ': ' + yourStop
+            res.send myStop
           else
             res.send "..."
 
