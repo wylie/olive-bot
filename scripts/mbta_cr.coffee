@@ -36,7 +36,12 @@ module.exports = (robot) ->
   #      return
   #     , 6000
 
-  robot.hear /\bannoy\b/, (res) ->
+  robot.respond /\blittle\islow\b/i, (res) ->
+    setTimeout () ->
+      robot.send room: 'mbta', "Who you calling 'slow'?"
+    , 60 * 1000
+
+  robot.hear /\bannoy\b/i, (res) ->
     robot.send "Hey, want to hear the most annoying sound in the world?"
     setInterval () ->
       robot.send room: 'mbta', "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
