@@ -25,16 +25,16 @@ module.exports = (robot) ->
 
 
   # days of the week
-  setInterval (->
-    robot.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
-      .get() (error, response, body) ->
-        json = JSON.parse(body) # parse the JSON
-        while i < json.Messages.length.toLowerCase() # loop through each channel
-          if i == 3
+  robot.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
+    .get() (error, response, body) ->
+      json = JSON.parse(body) # parse the JSON
+      while i < json.Messages.length.toLowerCase() # loop through each channel
+        if i == 3
+          setInterval (->
             robot.send room: 'mbta', "#{i}"
-          # robot.send room: 'mbta', "> The Stop is #{json.Messages[i].Stop} and it's scheduled for #{json.Messages[i].Scheduled}"
-    return
-  ), 6000
+          return
+          ), 6000
+        # robot.send room: 'mbta', "> The Stop is #{json.Messages[i].Stop} and it's scheduled for #{json.Messages[i].Scheduled}"
 
 
   # setInterval (->
