@@ -16,7 +16,7 @@
 module.exports = (robot) ->
 
   setInterval (->
-    res.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
+    robot.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
       .get() (error, response, body) ->
         json = JSON.parse(body) # parse the JSON
         robot.send room: 'mbta', "#{json.Messages[1].Stop}"
