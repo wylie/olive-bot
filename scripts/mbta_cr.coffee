@@ -47,14 +47,14 @@ module.exports = (robot) ->
       robot.send room: 'mbta', "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
     , 1000
 
-  robot.respond /pug it/i, (msg) ->
+  robot.hear /\bmbta\s(.*)\b/i, (msg) ->
     msg.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
       .get() (err, res, body) ->
         json = JSON.parse(body)
         while i < json.Messages.length.toLowerCase() # loop through each channel
           msg.send json.Messages[i].Stop
 
-  robot.hear /\bmbta\s(.*)\b/i, (res) ->
+  robot.hear /\bmbtass\s(.*)\b/i, (res) ->
     res.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
       .get() (err, res, body) ->
         json = JSON.parse(body)
