@@ -50,6 +50,7 @@ module.exports = (robot) ->
 
   robot.hear /\bmbta\s(.*)\b/i, (res) ->
     myStop = res.match[1].trim() # get the stop
+    res.send "#{myStop}"
     if myStop
       robot.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
         .get() (error, response, body) ->
