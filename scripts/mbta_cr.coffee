@@ -28,9 +28,9 @@ module.exports = (robot) ->
             # robot.send "#{json.Messages[1].Stop}"
             # jsonStop = json.Messages[i].Stop
             if json.Messages[i].Stop == myStop # if the channel matches grab the channel ID so we can make a link
-              res.send "> The Stop is #{json.Messages[i].Stop} and it's scheduled for #{json.Messages[i].Scheduled}"
+              robot.send room: "mbta", "> The Stop is #{json.Messages[i].Stop} and it's scheduled for #{json.Messages[i].Scheduled}"
             else
-              res.send "Couldn't get the info"
+              robot.send room: "mbta", "Couldn't get the info"
             i++
     else
       res.send "No stop supplied"
