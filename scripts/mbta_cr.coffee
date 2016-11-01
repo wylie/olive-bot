@@ -50,7 +50,9 @@ module.exports = (robot) ->
   robot.respond /pug it/i, (msg) ->
     msg.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
       .get() (err, res, body) ->
-        msg.send JSON.parse(body).Messages[1].Stop
+        json = JSON.parse(body)
+        while i < json.Messages.length.toLowerCase() # loop through each channel
+          msg.send json.Messages[i].Stop
 
   robot.hear /\bmbta\s(.*)\b/i, (res) ->
     res.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
