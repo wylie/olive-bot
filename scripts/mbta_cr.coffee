@@ -19,7 +19,7 @@ module.exports = (robot) ->
     res.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
       .get() (error, response, body) ->
         json = JSON.parse(body) # parse the JSON
-        robot.send room: "nbta", "#{json.Messages[1].Stop}"
+        robot.send room: 'mbta', "#{json.Messages[1].Stop}"
       return
   ), 2000
 
