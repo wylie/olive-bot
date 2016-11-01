@@ -36,7 +36,7 @@ module.exports = (robot) ->
   #      return
   #     , 6000
 
-  robot.respond /\blittle\islow\b/i, (res) ->
+  robot.respond /\blittle\sslow\b/i, (res) ->
     setTimeout () ->
       robot.send room: 'mbta', "Who you calling 'slow'?"
     , 60 * 1000
