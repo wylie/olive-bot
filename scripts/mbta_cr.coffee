@@ -30,14 +30,14 @@ module.exports = (robot) ->
       .get() (error, response, body) ->
         json = JSON.parse(body) # parse the JSON
         # robot.send "#{json.Messages[1].Stop}"
-        while i < json.Messages.length.toLowerCase() # loop through each channel
+        # while i < json.Messages.length.toLowerCase() # loop through each channel
           # robot.send "#{json.Messages[1].Stop}"
           # jsonStop = json.Messages[i].Stop
-          if json.Messages[i].Stop == myStop # if the channel matches grab the channel ID so we can make a link
-            robot.send room: 'mbta', "> The Stop is #{json.Messages[i].Stop} and it's scheduled for #{json.Messages[i].Scheduled}"
-          else
-            robot.send room: 'mbta', "Couldn't get the info"
-          i++
+          # if json.Messages[i].Stop == myStop # if the channel matches grab the channel ID so we can make a link
+        robot.send room: 'mbta', "> The Stop is #{json.Messages[1].Stop} and it's scheduled for #{json.Messages[1].Scheduled}"
+          # else
+          #   robot.send room: 'mbta', "Couldn't get the info"
+          # i++
     return
   ), 6000
 
