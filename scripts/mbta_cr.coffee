@@ -17,13 +17,14 @@ module.exports = (robot) ->
 
   # days of the week
   setInterval (->
-    robot.send room: "mbta", "BOOM"
-    return
+    res.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
+      .get() (error, response, body) ->
+        json = JSON.parse(body) # parse the JSON
+        robot.send room: "mbta", "#{body}"
+      return
   ), 2000
     # robot.hear /\bmbta\s(.*)\b/i, (res) ->
       # myStop = res.match[1].trim() # get the stop
-    # res.http('http://developer.mbta.com/lib/RTCR/RailLine_12.json') # get the JSON
-      # .get() (error, response, body) ->
         # json = JSON.parse(body) # parse the JSON
         # res.send "#{json.Messages[1].Stop}"
         # while i < json.Messages.length.toLowerCase() # loop through each channel
